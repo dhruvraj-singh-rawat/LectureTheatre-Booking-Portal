@@ -45,13 +45,24 @@ if (!$_SESSION['login_admin']){
             <!-- Menu Items -->
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li  class="active"><a href="index.php">Home</a></li>
                     <li><a href="book.php">Book</a></li>
                     <li><a href="history.php">History</a></li>
+                    
+                    <li><a href="create_account.php">Create Account</a></li>
+
                     <li><a href="test.php">Testing</a></li>
-                    <li><a href="../logout.php">Log Out</a></li>
+                    
+                   
                 </ul>
             </div>
+
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li><a  href="../logout.php">Log Out</a></li>
+                </ul>
+            </div>        
 
         </div>
     </nav>
@@ -88,9 +99,8 @@ if (!$_SESSION['login_admin']){
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../js/bootstrap.min.js"></script>
+   
+
 
   </body>
 </html>
