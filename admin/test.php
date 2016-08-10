@@ -17,8 +17,11 @@ else{
      
 
     $start_time=$conn->real_escape_string($_POST['start_time']);
+    $end_time=$conn->real_escape_string($_POST['end_time']);
 
-    $time  = date("H:i:s", strtotime($start_time));
+
+    $start_time  = date("H:i:s", strtotime($start_time));
+    $end_time  = date("H:i:s", strtotime($end_time));
     
 
     //echo 'The start time is '.$start_time.' and time in 24 hrs '.$time;
@@ -32,16 +35,17 @@ else{
 
 
 
-    if($conn->query("INSERT INTO `users_booking` (`start_time`,`date`) VALUES ( '$time' ,STR_TO_DATE('$date','%d-%m-%Y')  ) ")){
+    if($conn->query("INSERT INTO `users_booking` (`start_time`,`end_time`,`date`) VALUES ( '$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y')  ) ")){
 
     echo "<div class=\"alert alert-success fade in text-center\"\>
-        <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Inserted Date A LT! Rejoice :) </strong></div>";
+        <a href=\"test.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Inserted Date A LT! Rejoice :) </strong></div>";
 
 
     }
     else{
 
       echo 'Some Error Occured Bro :( ' ;
+
     }
 
 
@@ -108,9 +112,28 @@ else{
   } );
  </script>
 
+  <script>
+ $( function() {
+    $('#EndTime').timepicker({
+        timeFormat: 'h:mm p',
+    interval: 30,
+    minTime: '5:00pm',
+    maxTime: '11:00pm',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+  });
+  } );
+ </script>
+
 </head>
 
 <body>
+
+
+
 
   <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -139,20 +162,27 @@ else{
         <h2 class="text-center"><strong>LT-Booking Page</strong></h2>
 
 
-          <form method="post">
+          <form  data-toggle="validator" role="form" method="post">
 
             <fieldset class="form-group">
               <label for="DATE">Date</label>
-              <input name="date" type="text" class="form-control " id="datepicker" placeholder="Date">
+              <input name="date" type="text" class="form-control " id="datepicker" placeholder="Date" required>
               <small class="text-muted">Enter the date of Reservation!</small>
             </fieldset>
 
 
            <fieldset class="form-group">
               <label for="Time">Starting Time</label>
-              <input name="start_time" type="text" class="form-control " id="StartTime" placeholder="Starting Time">
+              <input name="start_time" type="text" class="form-control " id="StartTime" placeholder="Starting Time" required>
               
               <small class="text-muted">Enter the Starting Time for Reservation!</small>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label for="Time">EndingTime</label>
+              <input name="end_time" type="text" class="form-control " id="EndTime" placeholder="Ending Time" required>
+              
+              <small class="text-muted">Enter the Ending Time for Reservation!</small>
             </fieldset>
 
             <br>
@@ -160,7 +190,8 @@ else{
             <button type="submit" class="btn btn-primary">Submit</button>
 
             </div>
-           </form>
+            
+          </form>
 
 
 </body>
