@@ -43,12 +43,26 @@ if (!$_SESSION['login_admin']){
             <!-- Menu Items -->
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
+                    <li ><a href="index.php">Home</a></li>
                     <li><a href="book.php">Book</a></li>
-                    <li class="active"><a href="history.php">History</a></li>
-                    <li><a href="../logout.php">Log Out</a></li>
+                    <li  class="active"><a href="history.php">History</a></li>
+                    
+                    <li><a href="create_account.php">Create Account</a></li>
+                   
+                    
+                   
                 </ul>
             </div>
+
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li><a  href="../logout.php">Log Out</a></li>
+                </ul>
+            </div>        
+
+        </div>
+    </nav>
 
         </div>
     </nav>
@@ -60,12 +74,14 @@ if (!$_SESSION['login_admin']){
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Name of the Booking ID</th>
-                      <th>LT was booked for</th>
-                      <th>Name of the Club</th>
+                      <th>Booking ID</th>
+                      <th>Event Superviser</th>
+                      <th>Event Name</th>
+                      <th>Club</th>
                       <th>LT-Selected</th>
                       <th>Date</th>
-                      <th>Time</th>
+                      <th>Starting Time</th>
+                      <th>Ending Time</th>
                       <th>Message</th>
                     </tr>
                   </thead>
@@ -80,7 +96,7 @@ if (!$_SESSION['login_admin']){
                     if ($account_privilage==1){
 
 
-                        $result=$conn->query("SELECT name,lt_selected,bookingID_name,date,message,club_name,start_time  FROM users_booking ");
+                        $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser  FROM users_booking ");
 
                         $count=1;
 
@@ -91,11 +107,13 @@ if (!$_SESSION['login_admin']){
                             <tr>
                             <th scope=\"row\"><?php echo "$count" ;?></th>
                             <td><?php echo $row["bookingID_name"] ;?></td>
-                            <td><?php echo $row["name"] ;?></td>
+                            <td><?php echo $row["name_superviser"] ;?></td>
+                            <td><?php echo $row["name_event"] ;?></td>
                             <td><?php echo $row["club_name"] ;?></td>
                             <td><?php echo $row["lt_selected"] ;?></td>
                              <td><?php echo date('d-M-Y', strtotime(str_replace('-', '/',$row["date"]))) ;?></td>
                              <td><?php echo date('h:i A', strtotime($row["start_time"]))  ;?></td>
+                             <td> <?php echo date('h:i A',strtotime($row["end_time"]))  ;?></td>
                             <td><?php echo $row["message"] ;?></td>
                             </tr>
 
