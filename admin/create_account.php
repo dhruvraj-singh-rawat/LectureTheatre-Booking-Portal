@@ -121,7 +121,7 @@ if ((!$_SESSION['login_admin'] ) || ($_SESSION['login_privilage'] != 1) ){
     						<div class="col-md-4">
     							<select class="form-control" id="accountType" name="accountType">
     								<option value="0">Choose One</option>
-    								<option value="1">Adminstrator Account</option>
+    								<option value="1">Admin Account</option>
     								<option value="2">Basic Account</option>
     							</select>
     							
