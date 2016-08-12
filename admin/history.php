@@ -12,12 +12,9 @@ if (!$_SESSION['login_admin']){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="">
-
-    <title>DashBoard</title>
+    <meta name="description" content="Lecture Hall Booking Portal">
+    <meta name="author" content="Dhruvraj Singh Rawat">
+    <title>Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -93,7 +90,7 @@ if (!$_SESSION['login_admin']){
 
                     $account_admin=$_SESSION['login_admin'];
                     $account_privilage=$_SESSION['login_privilage'];
-                    if ($account_privilage==1){
+                    if ($account_privilage==2){
 
 
                         $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser  FROM users_booking ");
@@ -128,21 +125,25 @@ if (!$_SESSION['login_admin']){
 
                     else{
 
-                             $result=$conn->query("SELECT name,lt_selected,bookingID_name,message,club_name FROM users_booking WHERE bookingID_name='$account_admin'");
+                             $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser FROM users_booking WHERE bookingID_name='$account_admin'");
 
                                 $count=1;
 
                                 while($row = $result->fetch_assoc()){
 
                                 ?>
-                                    <tr>
-                                    <th scope=\"row\"><?php echo "$count" ;?></th>
-                                    <td><?php echo $row["bookingID_name"] ;?></td>
-                                    <td><?php echo $row["name"] ;?></td>
-                                    <td><?php echo $row["club_name"] ;?></td>
-                                    <td><?php echo $row["lt_selected"] ;?></td>
-                                    <td><?php echo $row["message"] ;?></td>
-                                    </tr>
+                                  <tr>
+                                  <th scope=\"row\"><?php echo "$count" ;?></th>
+                                  <td><?php echo $row["bookingID_name"] ;?></td>
+                                  <td><?php echo $row["name_superviser"] ;?></td>
+                                  <td><?php echo $row["name_event"] ;?></td>
+                                  <td><?php echo $row["club_name"] ;?></td>
+                                  <td><?php echo $row["lt_selected"] ;?></td>
+                                   <td><?php echo date('d-M-Y', strtotime(str_replace('-', '/',$row["date"]))) ;?></td>
+                                   <td><?php echo date('h:i A', strtotime($row["start_time"]))  ;?></td>
+                                   <td> <?php echo date('h:i A',strtotime($row["end_time"]))  ;?></td>
+                                  <td><?php echo $row["message"] ;?></td>
+                                  </tr>
 
                                     <?php
                                     $count=$count+1;
