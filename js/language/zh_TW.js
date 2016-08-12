@@ -1,6 +1,6 @@
 (function($) {
     /**
-     * Traditional Chinese language package
+     * Simplified Chinese language package
      * Translated by @tureki
      */
     $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
@@ -20,32 +20,26 @@
             more: '最多選擇 %s 個選項',
             between: '請選擇 %s 至 %s 個選項'
         },
-        color: {
-            'default': '請輸入有效的元色碼'
-        },
         creditCard: {
             'default': '請輸入有效的信用卡號碼'
         },
         cusip: {
-            'default': '請輸入有效的CUSIP(美國證券庫斯普)號碼'
+            'default': '請輸入有效的CUSIP'
         },
         cvv: {
-            'default': '請輸入有效的CVV(信用卡檢查碼)代碼'
+            'default': '請輸入有效的CVV'
         },
         date: {
-            'default': '請輸入有效的日期',
-            min  : '請輸入 %s 或之後的日期',
-            max  : '請輸入 %s 或以前的日期',
-            range : '請輸入 %s 至 %s 之間的日期'
+            'default': '請輸入有效的日期'
         },
         different: {
-            'default': '請輸入不同的值'
+            'default': '請輸入不一樣的值'
         },
         digits: {
-            'default': '只能輸入數字'
+             'default': '只能輸入數字'
         },
         ean: {
-            'default': '請輸入有效的EAN商品編碼'
+            'default': '請輸入有效的EAN'
         },
         emailAddress: {
             'default': '請輸入有效的EMAIL'
@@ -54,22 +48,22 @@
             'default': '請選擇有效的檔案'
         },
         greaterThan: {
-            'default'    : '請輸入大於等於 %s 的值',
-            notInclusive : '請輸入大於 %s 的值'
+            'default': '請輸入大於或等於 %s 的值',
+            notInclusive: '請輸入大於 %s 的值'
         },
         grid: {
-            'default': '請輸入有效的GRId編碼'
+            'default': '請輸入有效的GRId'
         },
         hex: {
             'default': '請輸入有效的16位元碼'
         },
         hexColor: {
-            'default': '請輸入有效的16位元色碼'
+            'default': '請輸入有效的16位色碼'
         },
         iban: {
-            'default': '請輸入有效的IBAN(國際銀行賬戶)號碼',
-            countryNotSupported: '不支援 %s 國家',
-            country: '請輸入有效的 %s 國家的IBAN(國際銀行賬戶)號碼',
+            'default': '請輸入有效的IBAN ',
+            countryNotSupported: '不支援該國家代碼 %s',
+            country: '請輸入有效的 %s IBAN編號 ',
             countries: {
                 AD: '安道​​爾',
                 AE: '阿聯酋',
@@ -114,7 +108,7 @@
                 IR: '伊朗',
                 IS: '冰島',
                 IT: '意大利',
-                JO: '約旦',
+                JO: '喬丹',
                 KW: '科威特',
                 KZ: '哈薩克斯坦',
                 LB: '黎巴嫩',
@@ -124,7 +118,7 @@
                 LV: '拉脫維亞',
                 MC: '摩納哥',
                 MD: '摩爾多瓦',
-                ME: '蒙特內哥羅',
+                ME: '黑山共和國',
                 MG: '馬達加斯加',
                 MK: '馬其頓',
                 ML: '馬里',
@@ -153,27 +147,26 @@
             }
         },
         id: {
-            'default': '請輸入有效的身份證字號',
-            countryNotSupported: '不支援 %s 國家',
-            country: '請輸入有效的 %s 身份證字號',
+            'default': '請輸入有效的身份證字號碼',
+            countryNotSupported: '不支援該國家代碼 %s',
+            country: '請輸入有效的 %s 身份證字號碼',
             countries: {
-                BA: '波赫',
+                BA: '波斯尼亞和黑塞哥維那',
                 BG: '保加利亞',
                 BR: '巴西',
                 CH: '瑞士',
                 CL: '智利',
-                CN: '中國',
-                CZ: '捷克共和國',
+                CZ: '捷克',
                 DK: '丹麥',
                 EE: '愛沙尼亞',
-                ES: '西班牙',
+                ES: '西班牙語',
                 FI: '芬蘭',
                 HR: '克羅地亞',
                 IE: '愛爾蘭',
                 IS: '冰島',
                 LT: '立陶宛',
-                LV: '拉脫維亞',
-                ME: '蒙特內哥羅',
+                LV: '拉脫維亞語',
+                ME: '黑山共和國',
                 MK: '馬其頓',
                 NL: '荷蘭',
                 RO: '羅馬尼亞',
@@ -182,18 +175,17 @@
                 SI: '斯洛文尼亞',
                 SK: '斯洛伐克',
                 SM: '聖馬力諾',
-                TH: '泰國',
                 ZA: '南非'
             }
         },
         identical: {
-            'default': '請輸入相同的值'
+            'default': '請輸入一樣的值'
         },
         imei: {
-            'default': '請輸入有效的IMEI(手機序列號)'
+            'default': '請輸入有效的IMEI'
         },
         imo: {
-            'default': '請輸入有效的國際海事組織(IMO)號碼'
+            'default': '請輸入有效的IMO'
         },
         integer: {
             'default': '請輸入有效的整數'
@@ -204,98 +196,89 @@
             ipv6: '請輸入有效的IPv6位址'
         },
         isbn: {
-            'default': '請輸入有效的ISBN(國際標準書號)'
+            'default': '請輸入有效的ISBN'
         },
         isin: {
-            'default': '請輸入有效的ISIN(國際證券號碼)'
+            'default': '請輸入有效的ISIN'
         },
         ismn: {
-            'default': '請輸入有效的ISMN(國際標準音樂編號)'
+            'default': '請輸入有效的ISMN'
         },
         issn: {
-            'default': '請輸入有效的ISSN(國際標準期刊號)'
+            'default': '請輸入有效的ISSN'
         },
         lessThan: {
-            'default': '請輸入小於等於 %s 的值',
+            'default': '請輸入小於或等於 %s 的值',
             notInclusive: '請輸入小於 %s 的值'
         },
         mac: {
             'default': '請輸入有效的MAC位址'
         },
         meid: {
-            'default': '請輸入有效的MEID(行動設備識別碼)'
+            'default': '請輸入有效的MEID'
         },
         notEmpty: {
-            'default': '請填寫必填欄位'
+            'default': '欄位不能為空'
         },
         numeric: {
-            'default': '請輸入有效的數字(含浮點數)'
+            'default': '請輸入有效的浮點數'
         },
         phone: {
             'default': '請輸入有效的電話號碼',
-            countryNotSupported: '不支援 %s 國家',
-            country: '請輸入有效的 %s 國家的電話號碼',
+            countryNotSupported: '不支援該國家代碼 %s',
+            country: '請輸入有效的 %s 電話號碼',
             countries: {
                 BR: '巴西',
-                CN: '中国',
-                CZ: '捷克共和國',
-                DE: '德國',
-                DK: '丹麥',
                 ES: '西班牙',
                 FR: '法國',
                 GB: '英國',
                 MA: '摩洛哥',
                 PK: '巴基斯坦',
-                RO: '罗马尼亚',
-                RU: '俄羅斯',
-                SK: '斯洛伐克',
-                TH: '泰國',
-                US: '美國',
-                VE: '委内瑞拉'
+                US: '美國'
             }
         },
         regexp: {
-            'default': '請輸入符合正規表示式所限制的值'
+            'default': '請輸入有效的值'
         },
         remote: {
             'default': '請輸入有效的值'
         },
         rtn: {
-            'default': '請輸入有效的RTN號碼'
+            'default': '請輸入有效的RTN'
         },
         sedol: {
-            'default': '請輸入有效的SEDOL代碼'
+            'default': '請輸入有效的SEDOL'
         },
         siren: {
-            'default': '請輸入有效的SIREN號碼'
+            'default': '請輸入有效的SIREN'
         },
         siret: {
-            'default': '請輸入有效的SIRET號碼'
+            'default': '請輸入有效的SIRET'
         },
         step: {
-            'default': '請輸入 %s 的倍數'
+            'default': '請輸入 %s 個有效步驟'
         },
         stringCase: {
-            'default': '只能輸入小寫字母',
-            upper: '只能輸入大寫字母'
+            'default': '只能輸入小寫的值',
+            upper: '只能輸入大寫的值'
         },
         stringLength: {
             'default': '請輸入符合長度限制的值',
             less: '請輸入小於 %s 個字',
             more: '請輸入大於 %s 個字',
-            between: '請輸入 %s 至 %s 個字'
+            between: '請輸入介於 %s 至 %s 個字'
         },
         uri: {
             'default': '請輸入一個有效的鏈接'
         },
         uuid: {
             'default': '請輸入有效的UUID',
-            version: '請輸入版本 %s 的UUID'
+            version: '請輸入符合版本 %s 的UUID'
         },
         vat: {
-            'default': '請輸入有效的VAT(增值税)',
-            countryNotSupported: '不支援 %s 國家',
-            country: '請輸入有效的 %s 國家的VAT(增值税)',
+            'default': '請輸入有效的VAT',
+            countryNotSupported: '不支援該國家代碼 %s',
+            country: '請輸入有效的 %s VAT',
             countries: {
                 AT: '奧地利',
                 BE: '比利時',
@@ -303,8 +286,8 @@
                 BR: '巴西',
                 CH: '瑞士',
                 CY: '塞浦路斯',
-                CZ: '捷克共和國',
-                DE: '德國',
+                CZ: '捷克',
+                DE: '德語',
                 DK: '丹麥',
                 EE: '愛沙尼亞',
                 ES: '西班牙',
@@ -320,7 +303,7 @@
                 IT: '意大利',
                 LT: '立陶宛',
                 LU: '盧森堡',
-                LV: '拉脫維亞',
+                LV: '拉脫維亞語',
                 MT: '馬耳他',
                 NL: '荷蘭',
                 NO: '挪威',
@@ -332,38 +315,27 @@
                 SE: '瑞典',
                 SI: '斯洛文尼亞',
                 SK: '斯洛伐克',
-                VE: '委内瑞拉',
                 ZA: '南非'
             }
         },
         vin: {
-            'default': '請輸入有效的VIN(車輛識別號碼)'
+            'default': '請輸入有效的VIN'
         },
         zipCode: {
             'default': '請輸入有效的郵政編碼',
-            countryNotSupported: '不支援 %s 國家',
-            country: '請輸入有效的 %s 國家的郵政編碼',
+            countryNotSupported: '不支援該國家代碼 %s',
+            country: '請輸入有效的 %s',
             countries: {
-                AT: '奧地利',
-                BR: '巴西',
-                CA: '加拿大',
-                CH: '瑞士',
-                CZ: '捷克共和國',
-                DE: '德國',
-                DK: '丹麥',
-                FR: '法國',
-                GB: '英國',
-                IE: '愛爾蘭',
-                IT: '意大利',
-                MA: '摩洛哥',
-                NL: '荷蘭',
-                PT: '葡萄牙',
-                RO: '羅馬尼亞',
-                RU: '俄羅斯',
-                SE: '瑞典',
-                SG: '新加坡',
-                SK: '斯洛伐克',
-                US: '美國'
+                BR: '巴西 郵政編碼',
+                CA: '加拿大 郵政編碼',
+                DK: '丹麥 郵政編碼',
+                GB: '英國 郵政編碼',
+                IT: '意大利 郵政編碼',
+                MA: '摩洛哥 郵政編碼',
+                NL: '荷蘭 郵政編碼',
+                SE: '瑞士 郵政編碼',
+                SG: '新加坡 郵政編碼',
+                US: '美國 郵政編碼'
             }
         }
     });

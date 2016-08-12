@@ -1,7 +1,7 @@
 (function($) {
     /**
      * Czech language package
-     * Translated by @AdwinTrave. Improved by @cuchac
+     * Translated by @AdwinTrave
      */
     $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
         base64: {
@@ -20,9 +20,6 @@
             more: 'Hodnota nesmí být více jak %s',
             between: 'Prosím vyberte mezi %s a %s'
         },
-        color: {
-            'default': 'Prosím zadejte správnou barvu'
-        },
         creditCard: {
             'default': 'Prosím zadejte správné číslo kreditní karty'
         },
@@ -33,10 +30,7 @@
             'default': 'Prosím zadejte správné CVV číslo'
         },
         date: {
-            'default': 'Prosím zadejte správné datum',
-            min: 'Prosím zadejte datum před %s',
-            max: 'Prosím zadejte datum po %s',
-            range: 'Prosím zadejte datum v rozmezí %s až %s'
+            'default': 'Prosím zadejte správný datum'
         },
         different: {
             'default': 'Prosím zadejte jinou hodnotu'
@@ -100,7 +94,7 @@
                 ES: 'Španělsko',
                 FI: 'Finsko',
                 FO: 'Faerské ostrovy',
-                FR: 'Francie',
+                FR: 'Francii',
                 GB: 'Velkou Británii',
                 GE: 'Gruzii',
                 GI: 'Gibraltar',
@@ -162,8 +156,7 @@
                 BR: 'Brazílii',
                 CH: 'Švýcarsko',
                 CL: 'Chile',
-                CN: 'Čína',
-                CZ: 'Českou Republiku',
+                CZ: 'Čechy',
                 DK: 'Dánsko',
                 EE: 'Estonsko',
                 ES: 'Špaňelsko',
@@ -175,19 +168,18 @@
                 LV: 'Lotyšsko',
                 ME: 'Montenegro',
                 MK: 'Makedonii',
-                NL: 'Nizozemí',
+                NL: 'Holansko',
                 RO: 'Rumunsko',
                 RS: 'Srbsko',
                 SE: 'Švédsko',
                 SI: 'Slovinsko',
                 SK: 'Slovensko',
                 SM: 'San Marino',
-                TH: 'Thajsko',
                 ZA: 'Jižní Afriku'
             }
         },
         identical: {
-            'default': 'Prosím zadejte stejnou hodnotu'
+            'default': 'Prosím zadejte stejné číslo'
         },
         imei: {
             'default': 'Prosím zadejte správné IMEI číslo'
@@ -237,21 +229,12 @@
             country: 'Prosím zadejte správné telefoní číslo pro %s',
             countries: {
                 BR: 'Brazílii',
-                CN: 'Čína',
-                CZ: 'Českou Republiku',
-                DE: 'Německo',
-                DK: 'Dánsko',
                 ES: 'Španělsko',
-                FR: 'Francie',
+                FR: 'Francii',
                 GB: 'Velkou Británii',
                 MA: 'Maroko',
                 PK: 'Pákistán',
-                RO: 'Rumunsko',
-                RU: 'Rusko',
-                SK: 'Slovensko',
-                TH: 'Thajsko',
-                US: 'Spojené Státy Americké',
-                VE: 'Venezuelský'
+                US: 'Spojené Státy Americké'
             }
         },
         regexp: {
@@ -303,7 +286,7 @@
                 BR: 'Brazílii',
                 CH: 'Švýcarsko',
                 CY: 'Kypr',
-                CZ: 'Českou Republiku',
+                CZ: 'Čechy',
                 DE: 'Německo',
                 DK: 'Dánsko',
                 EE: 'Estonsko',
@@ -322,7 +305,7 @@
                 LU: 'Lucembursko',
                 LV: 'Lotyšsko',
                 MT: 'Maltu',
-                NL: 'Nizozemí',
+                NL: 'Holandsko',
                 NO: 'Norsko',
                 PL: 'Polsko',
                 PT: 'Portugalsko',
@@ -332,7 +315,6 @@
                 SE: 'Švédsko',
                 SI: 'Slovinsko',
                 SK: 'Slovensko',
-                VE: 'Venezuelský',
                 ZA: 'Jižní Afriku'
             }
         },
@@ -340,30 +322,20 @@
             'default': 'Prosím zadejte správné VIN číslo'
         },
         zipCode: {
-            'default': 'Prosím zadejte správné PSČ',
+            'default': 'Prosím zadejte správné PSČ číslo',
             countryNotSupported: '%s není podporované',
-            country: 'Prosím zadejte správné PSČ pro %s',
+            country: 'Prosím zadejte správné %s',
             countries: {
-                AT: 'Rakousko',
-                BR: 'Brazílie',
-                CA: 'Kanada',
-                CH: 'Švýcarsko',
-                CZ: 'Českou Republiku',
-                DE: 'Německo',
-                DK: 'Dánsko',
-                FR: 'Francie',
-                GB: 'Velkou Británii',
-                IE: 'Irsko',
-                IT: 'Itálie',
-                MA: 'Maroko',
-                NL: 'Nizozemí',
-                PT: 'Portugalsko',
-                RO: 'Rumunsko',
-                RU: 'Rusko',
-                SE: 'Švédsko',
-                SG: 'Singapur',
-                SK: 'Slovensko',
-                US: 'Spojené Státy Americké'
+                BR: 'Brazílii PSČ',
+                CA: 'Kanadské PSČ',
+                DK: 'Dánské PSČ',
+                GB: 'PSČ Velké Británie',
+                IT: 'Italské PSČ',
+                MA: 'Maroko PSČ',
+                NL: 'Holandské PSČ',
+                SE: 'Švýcarské PSČ',
+                SG: 'Singapurské PSČ',
+                US: 'Americké PSČ'
             }
         }
     });

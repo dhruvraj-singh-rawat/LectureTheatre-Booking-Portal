@@ -1,6 +1,6 @@
 (function($) {
     /**
-     * Danish language package
+     * Danish language package (No, it ain't cake!)
      * Translated by @Djarnis
      */
     $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
@@ -20,9 +20,6 @@
             more: 'Vælg venligst højst %s valgmuligheder',
             between: 'Vælg venligst %s - %s valgmuligheder'
         },
-        color: {
-            'default': 'Udfyld venligst dette felt med en gyldig farve'
-        },
         creditCard: {
             'default': 'Udfyld venligst dette felt med et gyldigt kreditkort-nummer'
         },
@@ -33,10 +30,7 @@
             'default': 'Udfyld venligst dette felt med et gyldigt CVV-nummer'
         },
         date: {
-            'default': 'Udfyld venligst dette felt med en gyldig dato',
-            min: 'Angiv venligst en dato efter %s',
-            max: 'Angiv venligst en dato før %s',
-            range: 'Angiv venligst en dato mellem %s - %s'
+            'default': 'Udfyld venligst dette felt med en gyldig dato'
         },
         different: {
             'default': 'Udfyld venligst dette felt med en anden værdi'
@@ -80,7 +74,7 @@
                 BA: 'Bosnien-Hercegovina',
                 BE: 'Belgien',
                 BF: 'Burkina Faso',
-                BG: 'Bulgarien',
+                BG: 'Bulgaria',
                 BH: 'Bahrain',
                 BI: 'Burundi',
                 BJ: 'Benin',
@@ -155,35 +149,33 @@
         id: {
             'default': 'Udfyld venligst dette felt med et gyldigt identifikations-nummer',
             countryNotSupported: 'Landekoden %s understøttes desværre ikke',
-            country: 'Udfyld venligst dette felt med et gyldigt identifikations-nummer i %s',
+            country: 'Udfyld venligst dette felt med et gyldigt %s identifikations-nummer',
             countries: {
-                BA: 'Bosnien-Hercegovina',
-                BG: 'Bulgarien',
-                BR: 'Brasilien',
-                CH: 'Schweiz',
-                CL: 'Chile',
-                CN: 'Kina',
-                CZ: 'Tjekkiet',
-                DK: 'Danmark',
-                EE: 'Estland',
-                ES: 'Spanien',
-                FI: 'Finland',
-                HR: 'Kroatien',
-                IE: 'Irland',
-                IS: 'Island',
-                LT: 'Litauen',
-                LV: 'Letland',
-                ME: 'Montenegro',
-                MK: 'Makedonien',
-                NL: 'Holland',
-                RO: 'Rumænien',
-                RS: 'Serbien',
-                SE: 'Sverige',
-                SI: 'Slovenien',
-                SK: 'Slovakiet',
-                SM: 'San Marino',
-                TH: 'Thailand',
-                ZA: 'Sydafrika'
+                BA: 'Bosnien-Hercegovinsk',
+                BG: 'bulgarsk',
+                BR: 'brasiliansk',
+                CH: 'schweizisk',
+                CL: 'chilliensk',
+                CZ: 'tjekkisk',
+                DK: 'dansk',
+                EE: 'estisk',
+                ES: 'spansk',
+                FI: 'finsk',
+                HR: 'kroatisk',
+                IE: 'irsk',
+                IS: 'islandsk',
+                LT: 'litauisk',
+                LV: 'lettisk',
+                ME: 'montenegroiansk',
+                MK: 'makedonsk',
+                NL: 'hollandsk',
+                RO: 'romænsk',
+                RS: 'serbisk',
+                SE: 'svensk',
+                SI: 'slovensk',
+                SK: 'slovakisk',
+                SM: 'sammarinesisk',
+                ZA: 'sydafrikansk'
             }
         },
         identical: {
@@ -237,21 +229,12 @@
             country: 'Udfyld venligst dette felt med et gyldigt telefonnummer i %s',
             countries: {
                 BR: 'Brasilien',
-                CN: 'Kina',
-                CZ: 'Tjekkiet',
-                DE: 'Tyskland',
-                DK: 'Danmark',
                 ES: 'Spanien',
                 FR: 'Frankrig',
-                GB: 'Storbritannien',
+                GB: 'England',
                 MA: 'Marokko',
                 PK: 'Pakistan',
-                RO: 'Rumænien',
-                RU: 'Rusland',
-                SK: 'Slovakiet',
-                TH: 'Thailand',
-                US: 'USA',
-                VE: 'Venezuela'
+                US: 'USA'
             }
         },
         regexp: {
@@ -295,45 +278,44 @@
         vat: {
             'default': 'Udfyld venligst dette felt med et gyldig moms-nummer',
             countryNotSupported: 'Landekoden %s understøttes desværre ikke',
-            country: 'Udfyld venligst dette felt med et gyldigt moms-nummer i %s',
+            country: 'Udfyld venligst dette felt med et gyldigt %s moms-nummer',
             countries: {
-                AT: 'Østrig',
-                BE: 'Belgien',
-                BG: 'Bulgarien',
-                BR: 'Brasilien',
-                CH: 'Schweiz',
-                CY: 'Cypern',
-                CZ: 'Tjekkiet',
-                DE: 'Tyskland',
-                DK: 'Danmark',
-                EE: 'Estland',
-                ES: 'Spanien',
-                FI: 'Finland',
-                FR: 'Frankrig',
-                GB: 'Storbritannien',
-                GR: 'Grækenland',
-                EL: 'Grækenland',
-                HU: 'Ungarn',
-                HR: 'Kroatien',
-                IE: 'Irland',
-                IS: 'Island',
-                IT: 'Italien',
-                LT: 'Litauen',
-                LU: 'Luxembourg',
-                LV: 'Letland',
-                MT: 'Malta',
-                NL: 'Holland',
-                NO: 'Norge',
-                PL: 'Polen',
-                PT: 'Portugal',
-                RO: 'Rumænien',
-                RU: 'Rusland',
-                RS: 'Serbien',
-                SE: 'Sverige',
-                SI: 'Slovenien',
-                SK: 'Slovakiet',
-                VE: 'Venezuela',
-                ZA: 'Sydafrika'
+                AT: 'østrigsk',
+                BE: 'belgisk',
+                BG: 'bulgarsk',
+                BR: 'brasiliansk',
+                CH: 'schweizisk',
+                CY: 'cypriotisk',
+                CZ: 'tjekkisk',
+                DE: 'tysk',
+                DK: 'dansk',
+                EE: 'estisk',
+                ES: 'spansk',
+                FI: 'finsk',
+                FR: 'fransk',
+                GB: 'engelsk',
+                GR: 'græsk',
+                EL: 'græsk',
+                HU: 'ungarnsk',
+                HR: 'kroatisk',
+                IE: 'irsk',
+                IS: 'island',
+                IT: 'italiensk',
+                LT: 'litauisk',
+                LU: 'luxembourgsk',
+                LV: 'lettisk',
+                MT: 'maltesisk',
+                NL: 'hollandsk',
+                NO: 'norsk',
+                PL: 'polsk',
+                PT: 'portogisisk',
+                RO: 'romænsk',
+                RU: 'russisk',
+                RS: 'serbisk',
+                SE: 'svensk',
+                SI: 'slovensk',
+                SK: 'slovakisk',
+                ZA: 'sydafrikansk'
             }
         },
         vin: {
@@ -342,28 +324,18 @@
         zipCode: {
             'default': 'Udfyld venligst dette felt med et gyldigt postnummer',
             countryNotSupported: 'Landekoden %s understøttes desværre ikke',
-            country: 'Udfyld venligst dette felt med et gyldigt postnummer i %s',
+            country: 'Udfyld venligst dette felt med et gyldigt %s',
             countries: {
-                AT: 'Østrig',
-                BR: 'Brasilien',
-                CA: 'Canada',
-                CH: 'Schweiz',
-                CZ: 'Tjekkiet',
-                DE: 'Tyskland',
-                DK: 'Danmark',
-                FR: 'Frankrig',
-                GB: 'Storbritannien',
-                IE: 'Irland',
-                IT: 'Italien',
-                MA: 'Marokko',
-                NL: 'Holland',
-                PT: 'Portugal',
-                RO: 'Rumænien',
-                RU: 'Rusland',
-                SE: 'Sverige',
-                SG: 'Singapore',
-                SK: 'Slovakiet',
-                US: 'USA'
+                BR: 'brasiliansk postnummer',
+                CA: 'canadisk postnummer',
+                DK: 'dansk postnummer',
+                GB: 'engelsk postnummer',
+                IT: 'italiensk postnummer',
+                MA: 'Marokko postnummer',
+                NL: 'hollandsk postnummer',
+                SE: 'svensk postnummer',
+                SG: 'singaporeansk postnummer',
+                US: 'amerikansk postnummer'
             }
         }
     });

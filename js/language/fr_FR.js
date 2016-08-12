@@ -1,7 +1,7 @@
 (function($) {
     /**
      * French language package
-     * Translated by @dlucazeau. Updated by @neilime, @jazzzz
+     * Translated by @dlucazeau
      */
     $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
         base64: {
@@ -20,9 +20,6 @@
             more: 'Veuillez choisir au maximum %s options',
             between: 'Veuillez choisir de %s à %s options'
         },
-        color: {
-            'default': 'Veuillez fournir une couleur valide'
-        },
         creditCard: {
             'default': 'Veuillez fournir un numéro de carte de crédit valide'
         },
@@ -33,10 +30,7 @@
             'default': 'Veuillez fournir un code CVV valide'
         },
         date: {
-            'default': 'Veuillez fournir une date valide',
-            'min': 'Veuillez fournir une date supérieure à %s',
-            'max': 'Veuillez fournir une date inférieure à %s',
-            'range': 'Veuillez fournir une date comprise entre %s et %s'
+            'default': 'Veuillez fournir une date valide'
         },
         different: {
             'default': 'Veuillez fournir une valeur différente'
@@ -48,7 +42,7 @@
             'default': 'Veuillez fournir un code-barre EAN valide'
         },
         emailAddress: {
-            'default': 'Veuillez fournir une adresse e-mail valide'
+            'default': 'Veuillez fournir une adresse mail valide'
         },
         file: {
             'default': 'Veuillez choisir un fichier valide'
@@ -64,19 +58,19 @@
             'default': 'Veuillez fournir un nombre hexadécimal valide'
         },
         hexColor: {
-            'default': 'Veuillez fournir une couleur hexadécimale valide'
+            'default': 'Veuillez fournir une couleur hexadécimale valide1'
         },
         iban: {
             'default': 'Veuillez fournir un code IBAN valide',
             countryNotSupported: 'Le code de pays %s n\'est pas accepté',
-            country: 'Veuillez fournir un code IBAN valide pour %s',
+            country: 'Veuillez fournir un code IBAN sous la forme %s',
             countries: {
                 AD: 'Andorre',
                 AE: 'Émirats Arabes Unis',
                 AL: 'Albanie',
                 AO: 'Angola',
                 AT: 'Autriche',
-                AZ: 'Azerbaïdjan',
+                AZ: 'Azerbaijan',
                 BA: 'Bosnie-Herzégovine',
                 BE: 'Belgique',
                 BF: 'Burkina Faso',
@@ -87,7 +81,7 @@
                 BR: 'Brésil',
                 CH: 'Suisse',
                 CI: 'Côte d\'ivoire',
-                CM: 'Cameroun',
+                CM: 'Cameroon',
                 CR: 'Costa Rica',
                 CV: 'Cap Vert',
                 CY: 'Chypre',
@@ -155,35 +149,33 @@
         id: {
             'default': 'Veuillez fournir un numéro d\'identification valide',
             countryNotSupported: 'Le code de pays %s n\'est pas accepté',
-            country: 'Veuillez fournir un numéro d\'identification valide pour %s',
+            country: 'Veuillez fournir un numéro d\'identification %s valide',
             countries: {
-                BA: 'Bosnie-Herzégovine',
-                BG: 'Bulgarie',
-                BR: 'Brésil',
-                CH: 'Suisse',
-                CL: 'Chili',
-                CN: 'Chine',
-                CZ: 'République Tchèque',
-                DK: 'Danemark',
-                EE: 'Estonie',
-                ES: 'Espagne',
-                FI: 'Finlande',
-                HR: 'Croatie',
-                IE: 'Irlande',
-                IS: 'Islande',
-                LT: 'Lituanie',
-                LV: 'Lettonie',
-                ME: 'Monténégro',
-                MK: 'Macédoine',
-                NL: 'Pays-Bas',
-                RO: 'Roumanie',
-                RS: 'Serbie',
-                SE: 'Suède',
-                SI: 'Slovénie',
-                SK: 'Slovaquie',
-                SM: 'Saint-Marin',
-                TH: 'Thaïlande',
-                ZA: 'Afrique du Sud'
+                BA: 'Bosnia and Herzegovina',
+                BG: 'bulgare',
+                BR: 'brésilien',
+                CH: 'suisse',
+                CL: 'chilien',
+                CZ: 'tchéque',
+                DK: 'danois',
+                EE: 'estonien',
+                ES: 'espagnol',
+                FI: 'finnois',
+                HR: 'croate',
+                IE: 'irlandais',
+                IS: 'islandais',
+                LT: 'lithuanien',
+                LV: 'letton',
+                ME: 'monténégrin',
+                MK: 'macédonien',
+                NL: 'hollandais',
+                RO: 'roumain',
+                RS: 'serbe',
+                SE: 'suédois',
+                SI: 'slovène',
+                SK: 'slovaque',
+                SM: 'de Saint-Marin',
+                ZA: 'sud-africain'
             }
         },
         identical: {
@@ -237,21 +229,12 @@
             country: 'Veuillez fournir un numéro de téléphone valide pour %s',
             countries: {
                 BR: 'Brésil',
-                CN: 'Chine',
-                CZ: 'République Tchèque',
-                DE: 'Allemagne',
-                DK: 'Danemark',
-                ES: 'Espagne',
-                FR: 'France',
-                GB: 'Royaume-Uni',
+                ES: 'las Espagne',
+                FR: 'la France',
+                GB: 'le Royaume Uni',
                 MA: 'Maroc',
-                PK: 'Pakistan',
-                RO: 'Roumanie',
-                RU: 'Russie',
-                SK: 'Slovaquie',
-                TH: 'Thaïlande',
-                US: 'USA',
-                VE: 'Venezuela'
+                PK: 'le Pakistan',
+                US: 'les USA'
             }
         },
         regexp: {
@@ -295,45 +278,44 @@
         vat: {
             'default': 'Veuillez fournir un code VAT valide',
             countryNotSupported: 'Le code de pays %s n\'est pas accepté',
-            country: 'Veuillez fournir un code VAT valide pour %s',
+            country: 'Veuillez fournir un code VAT %s valide',
             countries: {
-                AT: 'Autriche',
-                BE: 'Belgique',
-                BG: 'Bulgarie',
-                BR: 'Brésil',
-                CH: 'Suisse',
-                CY: 'Chypre',
-                CZ: 'République Tchèque',
-                DE: 'Allemagne',
-                DK: 'Danemark',
-                EE: 'Estonie',
-                ES: 'Espagne',
-                FI: 'Finlande',
-                FR: 'France',
-                GB: 'Royaume-Uni',
-                GR: 'Grèce',
-                EL: 'Grèce',
-                HU: 'Hongrie',
-                HR: 'Croatie',
-                IE: 'Irlande',
+                AT: 'autrichien',
+                BE: 'belge',
+                BG: 'bulgare',
+                BR: 'brésilien',
+                CH: 'suisse',
+                CY: 'chypriote',
+                CZ: 'tchèque',
+                DE: 'allemand',
+                DK: 'danois',
+                EE: 'estonien',
+                ES: 'Spanish',
+                FI: 'finnois',
+                FR: 'français',
+                GB: 'anglais',
+                GR: 'grec',
+                EL: 'grec',
+                HU: 'hongrois',
+                HR: 'croate',
+                IE: 'irlandais',
                 IS: 'Islande',
-                IT: 'Italie',
-                LT: 'Lituanie',
-                LU: 'Luxembourg',
-                LV: 'Lettonie',
-                MT: 'Malte',
-                NL: 'Pays-Bas',
-                NO: 'Norvège',
-                PL: 'Pologne',
-                PT: 'Portugal',
-                RO: 'Roumanie',
-                RU: 'Russie',
-                RS: 'Serbie',
-                SE: 'Suède',
-                SI: 'Slovénie',
-                SK: 'Slovaquie',
-                VE: 'Venezuela',
-                ZA: 'Afrique du Sud'
+                IT: 'italien',
+                LT: 'lithuanien',
+                LU: 'luxembourgeois',
+                LV: 'letton',
+                MT: 'maltais',
+                NL: 'hollandais',
+                NO: 'norvégien',
+                PL: 'polonais',
+                PT: 'portuguais',
+                RO: 'roumain',
+                RU: 'russe',
+                RS: 'serbe',
+                SE: 'suédois',
+                SI: 'slovène',
+                SK: 'slovaque',
+                ZA: 'sud-africain'
             }
         },
         vin: {
@@ -342,28 +324,18 @@
         zipCode: {
             'default': 'Veuillez fournir un code postal valide',
             countryNotSupported: 'Le code de pays %s n\'est pas accepté',
-            country: 'Veuillez fournir un code postal valide pour %s',
+            country: 'Veuillez fournir un %s valide',
             countries: {
-                AT: 'Autriche',
-                BR: 'Brésil',
-                CA: 'Canada',
-                CH: 'Suisse',
-                CZ: 'République Tchèque',
-                DE: 'Allemagne',
-                DK: 'Danemark',
-                FR: 'France',
-                GB: 'Royaume-Uni',
-                IE: 'Irlande',
-                IT: 'Italie',
-                MA: 'Maroc',
-                NL: 'Pays-Bas',
-                PT: 'Portugal',
-                RO: 'Roumanie',
-                RU: 'Russie',
-                SE: 'Suède',
-                SG: 'Singapour',
-                SK: 'Slovaquie',
-                US: 'USA'
+                BR: 'code postal brésilien',
+                CA: 'code postal canadien',
+                DK: 'code postal dannois',
+                GB: 'code postal anglais',
+                IT: 'code postal italien',
+                MA: 'code postal marocain',
+                NL: 'code postal hollandais',
+                SE: 'code postal suisse',
+                SG: 'code postal de Singapour',
+                US: 'code zip US'
             }
         }
     });

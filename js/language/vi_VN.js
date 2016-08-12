@@ -20,9 +20,6 @@
             more: 'Vui lòng chọn nhiều nhất %s lựa chọn',
             between: 'Vui lòng chọn %s - %s lựa chọn'
         },
-        color: {
-            'default': 'Vui lòng nhập mã màu hợp lệ'
-        },
         creditCard: {
             'default': 'Vui lòng nhập số thẻ tín dụng hợp lệ'
         },
@@ -33,10 +30,7 @@
             'default': 'Vui lòng nhập số CVV hợp lệ'
         },
         date: {
-            'default': 'Vui lòng nhập ngày hợp lệ',
-            min: 'Vui lòng nhập ngày sau %s',
-            max: 'Vui lòng nhập ngày trước %s',
-            range: 'Vui lòng nhập ngày trong khoảng %s - %s'
+            'default': 'Vui lòng nhập ngày hợp lệ'
         },
         different: {
             'default': 'Vui lòng nhập một giá trị khác'
@@ -136,10 +130,10 @@
                 NO: 'Na Uy',
                 PK: 'Pakistan',
                 PL: 'Ba Lan',
-                PS: 'Palestine',
+                PS: 'Palestinian',
                 PT: 'Bồ Đào Nha',
                 QA: 'Qatar',
-                RO: 'Romania',
+                RO: 'Rumani',
                 RS: 'Serbia',
                 SA: 'Ả Rập Xê Út',
                 SE: 'Thuỵ Điển',
@@ -158,11 +152,10 @@
             country: 'Vui lòng nhập mã ID hợp lệ của %s',
             countries: {
                 BA: 'Bosnia và Herzegovina',
-                BG: 'Bulgaria',
+                BG: 'Bulgari',
                 BR: 'Brazil',
                 CH: 'Thuỵ Sĩ',
                 CL: 'Chi Lê',
-                CN: 'Trung Quốc',
                 CZ: 'Séc',
                 DK: 'Đan Mạch',
                 EE: 'Estonia',
@@ -176,13 +169,12 @@
                 ME: 'Montenegro',
                 MK: 'Macedonia',
                 NL: 'Hà Lan',
-                RO: 'Romania',
+                RO: 'Rumani',
                 RS: 'Serbia',
                 SE: 'Thuỵ Điển',
                 SI: 'Slovenia',
                 SK: 'Slovakia',
                 SM: 'San Marino',
-                TH: 'Thái Lan',
                 ZA: 'Nam Phi'
             }
         },
@@ -237,21 +229,12 @@
             country: 'Vui lòng nhập số điện thoại hợp lệ của %s',
             countries: {
                 BR: 'Brazil',
-                CN: 'Trung Quốc',
-                CZ: 'Séc',
-                DE: 'Đức',
-                DK: 'Đan Mạch',
                 ES: 'Tây Ban Nha',
                 FR: 'Pháp',
                 GB: 'Vương quốc Anh',
                 MA: 'Maroc',
                 PK: 'Pakistan',
-                RO: 'Romania',
-                RU: 'Nga',
-                SK: 'Slovakia',
-                TH: 'Thái Lan',
-                US: 'Mỹ',
-                VE: 'Venezuela'
+                US: 'Mỹ'
             }
         },
         regexp: {
@@ -299,7 +282,7 @@
             countries: {
                 AT: 'Áo',
                 BE: 'Bỉ',
-                BG: 'Bulgaria',
+                BG: 'Bulgari',
                 BR: 'Brazil',
                 CH: 'Thuỵ Sĩ',
                 CY: 'Síp',
@@ -321,18 +304,17 @@
                 LT: 'Lithuania',
                 LU: 'Luxembourg',
                 LV: 'Latvia',
-                MT: 'Malta',
+                MT: 'Maltese',
                 NL: 'Hà Lan',
                 NO: 'Na Uy',
                 PL: 'Ba Lan',
                 PT: 'Bồ Đào Nha',
-                RO: 'Romania',
+                RO: 'Rumani',
                 RU: 'Nga',
-                RS: 'Serbia',
+                RS: 'Serbi',
                 SE: 'Thuỵ Điển',
                 SI: 'Slovenia',
                 SK: 'Slovakia',
-                VE: 'Venezuela',
                 ZA: 'Nam Phi'
             }
         },
@@ -342,28 +324,18 @@
         zipCode: {
             'default': 'Vui lòng nhập mã bưu điện hợp lệ',
             countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
-            country: 'Vui lòng nhập mã bưu điện hợp lệ của %s',
+            country: 'Vui lòng nhập %s',
             countries: {
-                AT: 'Áo',
-                BR: 'Brazil',
-                CA: 'Canada',
-                CH: 'Thuỵ Sĩ',
-                CZ: 'Séc',
-                DE: 'Đức',
-                DK: 'Đan Mạch',
-                FR: 'Pháp',
-                GB: 'Vương quốc Anh',
-                IE: 'Ireland',
-                IT: 'Ý',
-                MA: 'Maroc',
-                NL: 'Hà Lan',
-                PT: 'Bồ Đào Nha',
-                RO: 'Romania',
-                RU: 'Nga',
-                SE: 'Thuỵ Sĩ',
-                SG: 'Singapore',
-                SK: 'Slovakia',
-                US: 'Mỹ'
+                BR: 'mã bưu điện của Brazil',
+                CA: 'mã bưu điện của Canada',
+                DK: 'mã bưu điện của Đan Mạch',
+                GB: 'mã bưu điện của Vương quốc Anh',
+                IT: 'mã bưu điện của Ý',
+                MA: 'mã bưu điện của Maroc',
+                NL: 'mã bưu điện của Hà Lan',
+                SE: 'mã bưu điện của Thuỵ Sĩ',
+                SG: 'mã bưu điện của Singapore',
+                US: 'mã bưu điện của Mỹ'
             }
         }
     });
