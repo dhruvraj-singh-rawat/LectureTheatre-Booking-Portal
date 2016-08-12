@@ -14,12 +14,11 @@ if (!$_SESSION['login_admin']){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="">
+    <meta name="description" content="Lecture Hall Booking Portal">
+    <meta name="author" content="Dhruvraj Singh Rawat">
+    <title>Dashboard</title>
 
-    <title>DashBoard</title>
+    
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +78,7 @@ if (!$_SESSION['login_admin']){
     	<div class="well"><?php echo $_SESSION['login_email']; ?>           
         </div>
 
-        <div class="well"><?php  if(@$_SESSION['login_privilage']==1){
+        <div class="well"><?php  if(@$_SESSION['login_privilage']==2){
             echo "Administrator Privilages";
             }
             else{
