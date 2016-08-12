@@ -48,7 +48,28 @@ else{
 
         if ($password==$_SESSION['login_password']){
 
-            if($conn->query("INSERT INTO `users_booking` (`id`, `name_event`,`club_name`, `lt_selected`, `message`, `bookingID_name`,`name_superviser`,`start_time`,`end_time`,`date`) VALUES (NULL, '$name_event', '$club_name','$lt_selected', '$message', '$booking_id','$name_superviser','$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y') )")){
+
+          $result1=$conn->query("SELECT start_time,end_time  FROM users_booking WHERE lt_selected=$lt_selected AND date=STR_TO_DATE('$date','%d-%m-%Y')");
+          $count_inside=0;
+
+          $count_actual=$result1->num_rows;
+
+          while($row = $result1->fetch_assoc()){
+
+            $Start_Time=$row["start_time"];
+            $End_Time=$row["end_time"];
+
+            if( ( ($Start_Time>=$start_time) && ($Start_Time>=$end_time) ) || ( ($End_Time<=$start_time) && ($End_Time<=$end_time) ) ){
+
+              $count_inside+=1;
+            }
+
+          }
+         // echo 'The count actual is '.$count_actual.' and the count inside is '.$count_inside;
+
+          if($count_inside==$count_actual){
+
+                        if($conn->query("INSERT INTO `users_booking` (`id`, `name_event`,`club_name`, `lt_selected`, `message`, `bookingID_name`,`name_superviser`,`start_time`,`end_time`,`date`) VALUES (NULL, '$name_event', '$club_name','$lt_selected', '$message', '$booking_id','$name_superviser','$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y') )")){
 
                 echo "<div class=\"alert alert-success fade in text-center\"\>
                     <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Booked A LT! Rejoice :) </strong></div>";
@@ -64,6 +85,14 @@ else{
                 }
 
 
+          }
+          else{
+
+                  echo "<div class=\"alert alert-info fade in text-center\"\>
+            <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>LT not available at this timing.Try for some different Timings :( </strong></div>";
+
+          }
+
         }
 
         else{
@@ -73,17 +102,6 @@ else{
 
 
         }
-
-
-
- 
-   
-
-
-    
-
-
-
  
 }
 
@@ -103,12 +121,9 @@ else{
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="">
-
-    <title>DashBoard</title>
+    <meta name="description" content="Lecture Hall Booking Portal">
+    <meta name="author" content="Dhruvraj Singh Rawat">
+    <title>Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -127,6 +142,19 @@ else{
   <script src="../js/jquery-1.12.4.js"></script>
   <script src="../js/jquery-ui.js"></script>
    <script src="../js/jquery.timepicker.min.js"></script>
+   <script src="../js/moment.min.js"></script>
+
+
+  <!-- BootstrapValidator CSS -->
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet"/>
+  
+    <!-- jQuery and Bootstrap JS -->
+  
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    
+  <!-- BootstrapValidator -->
+    <script src="../js/bootstrapValidator.min.js" type="text/javascript"></script>
+
 
   <script>
   $( function() {
@@ -141,8 +169,8 @@ else{
     interval: 30,
     minTime: '5:00pm',
     maxTime: '11:00pm',
-    defaultTime: '11',
-    startTime: '10:00',
+    defaultTime: '5:00pm',
+    startTime: '5:00pm',
     dynamic: false,
     dropdown: true,
     scrollbar: true
@@ -158,8 +186,8 @@ else{
     interval: 30,
     minTime: '5:00pm',
     maxTime: '11:00pm',
-    defaultTime: '11',
-    startTime: '10:00',
+    defaultTime: '6:00pm',
+    startTime: '5:00pm',
     dynamic: false,
     dropdown: true,
     scrollbar: true
@@ -229,7 +257,7 @@ else{
 
 
               <div class="form-group">
-                <label class="col-md-2 control-label" for="Name_Event">Club</label>
+                <label class="col-md-2 control-label" for="Name_Club">Club</label>
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="Name_Club" name="club" placeholder="Name of the Club" />
                 </div>
@@ -238,7 +266,7 @@ else{
               <div class="form-group">
                 <label class="col-md-2 control-label" for="Date">Date</label>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="datepicker" name="date" placeholder="Date" />
+                  <input type="text" class="form-control" id="datepicker" name="date" placeholder="DD-MM-YYYY"  />
                 </div>
               </div>
 
@@ -300,4 +328,113 @@ else{
         </div>
       </div>
     </body>
+
+
+    <script type="text/javascript">
+  $(document).ready(function () {
+    var validator = $("#booking-form").bootstrapValidator({
+      feedbackIcons: {
+        valid: "glyphicon glyphicon-ok",
+        invalid: "glyphicon glyphicon-remove", 
+        validating: "glyphicon glyphicon-refresh"
+      }, 
+      fields : {
+
+        name_superviser : {
+          validators: {
+            notEmpty : {
+              message : "Name is required"
+            },
+            stringLength: {
+              min : 4, 
+              max: 35,
+              message: "Name must be between 4 and 35 characters long"
+            }
+ 
+
+          }
+        },
+
+
+
+
+        message : {
+          validators: {
+            notEmpty : {
+              message : "Message is required"
+            },
+            stringLength: {
+              min : 4, 
+              max: 175,
+              message: "Name must be between 4 and 175 characters long"
+            },
+
+          }
+        }, 
+
+        name_event : {
+          validators: {
+            notEmpty : {
+              message : "Name of the Event is required"
+            },
+            stringLength: {
+              min : 3, 
+              max: 35,
+              message: "Name of Event must be between 4 and 35 characters long"
+            },
+ 
+
+          }
+        },
+
+        club : {
+          validators: {
+            notEmpty : {
+              message : "Name of Club is required"
+            },
+            stringLength: {
+              min : 3, 
+              max: 35,
+              message: "Name of Club must be between 4 and 35 characters long"
+            },
+ 
+
+          }
+        },
+
+
+
+        password : {
+          validators: {
+            notEmpty : {
+              message : "Password is required"
+            },
+            stringLength : {
+              min: 4,
+              message: "Password must be atleast 4 characters long"
+            }, 
+            different : {
+              field : "email", 
+              message: "Email address and password can not match"
+            }
+          }
+        }, 
+ 
+
+       
+        lt_selected : {
+          validators : {
+            greaterThan : {
+              value: 1,
+              message: "LT is required"
+            }
+          }
+        }
+      }
+    });
+  
+
+    
+  });
+</script>
   </html>
