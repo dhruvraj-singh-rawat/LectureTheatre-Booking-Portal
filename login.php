@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	else{
 		
     echo "<div class=\"alert alert-danger fade in text-center\"\>
-      <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Invalid Username or password</strong></div>";
+      <a href=\"login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Invalid Username or password</strong></div>";
       
 
 
