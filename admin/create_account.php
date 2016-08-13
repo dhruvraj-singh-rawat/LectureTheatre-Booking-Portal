@@ -21,14 +21,18 @@ else{
 
  			if($conn->query("INSERT INTO `users_profile` (`id`, `user_name`,`password`, `email`, `position`, `privilage`) VALUES (NULL, '$name', '$password','$email', '$position', '$AccountType')")){
 
- 				echo 'The account has been created';
+ 				echo "<div class=\"alert alert-success fade in text-center\"\>
+                    <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully made an ID! Start Booking :)</strong></div>";
 
 
 
  			}
  			else{
 
- 				echo 'The account has not been created. Some Error has occured in DB';
+ 				echo "<div class=\"alert alert-danger fade in text-center\"\>
+                        <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>The account has not been created. Some Error has occured in DB </strong></div>";
+
+ 				
 
 
  			}
@@ -37,7 +41,8 @@ else{
       }
       else{
 
-      	echo 'The password Entered is incorrect';
+      	   echo "<div class=\"alert alert-info fade in text-center\"\>
+            <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>The Current Password is incorrect! </strong></div>";
 
 
       }
@@ -65,7 +70,7 @@ else{
 
     <!-- Bootstrap CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/basic-template.css" rel="stylesheet" />
+    
 
 	<!-- BootstrapValidator CSS -->
     <link href="../css/bootstrapValidator.min.css" rel="stylesheet"/>
@@ -79,12 +84,12 @@ else{
 
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
         <div class="container-fluid">
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -94,16 +99,33 @@ else{
                     <li><a href="book.php">Book</a></li>
                     <li><a href="history.php">History</a></li>
                     
-                    <li class="active"><a href="create_account.php">Create Account</a></li>
+                   <?php
+  if($_SESSION['login_privilage'] == 2){
+    ?>
+    <li class="active"><a href="create_account.php">Create Account</a></li>
+    
+    <?php
 
+  }
                     
-                    
+?>         
                    
                 </ul>
             </div>
 
             <div>
                 <ul class="nav navbar-nav navbar-right">
+                
+                    <?php
+                      if($_SESSION['login_privilage'] == 2){
+                        ?>
+                        <li ><a href="delete_account.php">Delete Account</a></li>
+                        <?php
+
+                      }
+                                        
+                    ?>  
+                	<li><a href="change_password.php">Change Password</a></li>
                     
                     <li><a  href="../logout.php">Log Out</a></li>
                 </ul>
@@ -116,7 +138,7 @@ else{
 
 	<div class="container">
 		<div class="panel panel-default">
-			<div class="panel-heading text-center">Account Registration</div>
+			<div class="panel-heading text-center"><h3>Account Registration</h3></div>
 			<br>
 			<div class="panel-body">
 
