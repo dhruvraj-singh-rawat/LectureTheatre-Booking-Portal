@@ -72,7 +72,7 @@ else{
                         if($conn->query("INSERT INTO `users_booking` (`id`, `name_event`,`club_name`, `lt_selected`, `message`, `bookingID_name`,`name_superviser`,`start_time`,`end_time`,`date`) VALUES (NULL, '$name_event', '$club_name','$lt_selected', '$message', '$booking_id','$name_superviser','$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y') )")){
 
                 echo "<div class=\"alert alert-success fade in text-center\"\>
-                    <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Booked A LT! Rejoice :) </strong></div>";
+                    <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Booked A LT! Rejoice :) </strong></div>";
 
     
                 }
@@ -81,7 +81,7 @@ else{
 
 
                   echo "<div class=\"alert alert-danger fade in text-center\"\>
-                        <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Not able to book. Try Again! Sorry for Inconvenience :( </strong></div>";
+                        <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Not able to book. Try Again! Sorry for Inconvenience :( </strong></div>";
                 }
 
 
@@ -89,7 +89,7 @@ else{
           else{
 
                   echo "<div class=\"alert alert-info fade in text-center\"\>
-            <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>LT not available at this timing.Try for some different Timings :( </strong></div>";
+            <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>LT not available at this timing.Try for some different Timings :( </strong></div>";
 
           }
 
@@ -98,7 +98,7 @@ else{
         else{
 
                 echo "<div class=\"alert alert-danger fade in text-center\"\>
-                     <a href=\"\#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Wrong Account Password Entered! Re-Enter The Account Password for the Account with which you are Logged In Right Now</strong></div>";
+                     <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Wrong Account Password Entered! Re-Enter The Account Password for the Account with which you are Logged In Right Now</strong></div>";
 
 
         }
@@ -197,12 +197,12 @@ else{
 
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
         <div class="container-fluid">
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -212,7 +212,16 @@ else{
                     <li  class="active"><a href="book.php">Book</a></li>
                     <li ><a href="history.php">History</a></li>
                     
-                    <li><a href="create_account.php">Create Account</a></li>
+                   <?php
+  if($_SESSION['login_privilage'] == 2){
+    ?>
+    <li><a href="create_account.php">Create Account</a></li>
+    
+    <?php
+
+  }
+                    
+?> 
                    
                     
                    
@@ -221,6 +230,16 @@ else{
 
             <div>
                 <ul class="nav navbar-nav navbar-right">
+                    <?php
+                      if($_SESSION['login_privilage'] == 2){
+                        ?>
+                        <li ><a href="delete_account.php">Delete Account</a></li>
+                        <?php
+
+                      }
+                                        
+                    ?>  
+                    <li><a href="change_password.php">Change Password</a></li>
                     
                     <li><a  href="../logout.php">Log Out</a></li>
                 </ul>
@@ -233,7 +252,7 @@ else{
 
     <div class="container">
       <div class="panel panel-default">
-        <div class="panel-heading text-center" >Booking Wizard</div>
+        <div class="panel-heading text-center" ><h3>Booking Wizard</h3></div>
 
           <div class="panel-body">
             <form id="booking-form" method="POST" class="form-horizontal" action="#">
