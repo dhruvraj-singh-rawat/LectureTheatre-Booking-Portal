@@ -10,18 +10,26 @@ else{
   if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
-    $currentpassword=md5($conn->real_escape_string($_POST['currentpassword']));
-    $newpassword=md5($conn->real_escape_string($_POST['newpassword']));
+    $currentpassword=$conn->real_escape_string($_POST['currentpassword']);
+    $newpassword=$conn->real_escape_string($_POST['newpassword']);
+    $hash_db=$_SESSION['login_password'];
     
     $email=$_SESSION['login_email'];
 
-      if ($currentpassword==$_SESSION['login_password']){
+      if (password_verify($currentpassword, $hash_db)){
 
-      if($conn->query("UPDATE `users_profile` SET `password`='$newpassword' WHERE email='$email' ")){
+        $options = [
+          'cost' => 11,
+          'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+        ];
+
+        $hash=password_hash($newpassword, PASSWORD_BCRYPT, $options);
+
+      if($conn->query("UPDATE `users_profile` SET `password`='$hash' WHERE email='$email' ")){
 
         echo "<div class=\"alert alert-success fade in text-center\"\>
                     <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully Changed the Password :)</strong></div>";
-                    $_SESSION['login_password']=$newpassword;
+                    $_SESSION['login_password']=$hash;
 
 
 
