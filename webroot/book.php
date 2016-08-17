@@ -14,11 +14,13 @@ else{
 
     $name_event=$conn->real_escape_string($_POST['name_event']);
     $name_superviser=$conn->real_escape_string($_POST['name_superviser']);
-    $password=md5($conn->real_escape_string($_POST['password']));
+    $password=$conn->real_escape_string($_POST['password']);
     $lt_selected=$conn->real_escape_string($_POST['lt_selected']);
     $message=$conn->real_escape_string($_POST['message']);
     $booking_id=$_SESSION['login_admin'];
     $club_name=$conn->real_escape_string($_POST['club']);
+
+    $hash_db=$_SESSION['login_password'];
 
     //---------
 
@@ -37,13 +39,13 @@ else{
     $end_time_temp = strtotime($end_time);
     $diff_time=($end_time_temp-$start_time_temp)/60;
 
-    echo $diff_time;
+    //echo $diff_time;
 
     $date_sys_temp=strtotime($date_sys);
     $date_temp=strtotime($date);
     $diff_date=(($date_temp-$date_sys_temp)/(86400)-1);
 
-    echo ' Diff in date '.$diff_date.' start_time is '.$start_time_temp.'   end time temp is '.$end_time_temp;
+    //echo ' Diff in date '.$diff_date.' start_time is '.$start_time_temp.'   end time temp is '.$end_time_temp;
 
     //echo date_diff($date, $date_sys);
     //$diff=$date-$date_sys;
@@ -56,9 +58,11 @@ else{
 
 
     $reference=uniqid('lt');
+
+    
     
 
-        if ($password==$_SESSION['login_password']){
+        if (password_verify($password, $hash_db)){
 
 
           $result1=$conn->query("SELECT start_time,end_time  FROM users_booking WHERE lt_selected=$lt_selected AND date=STR_TO_DATE('$date','%d-%m-%Y')");
