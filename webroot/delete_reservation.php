@@ -6,14 +6,16 @@ if ((!$_SESSION['login_admin'] ) ){
 }
 
 else{
-  ////////echo uniqid('lt');
+  
 
   if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
-    $currentpassword=md5($conn->real_escape_string($_POST['currentpassword']));
+    $currentpassword=$conn->real_escape_string($_POST['currentpassword']);
     $ref=$conn->real_escape_string($_POST['ref']);
     $id=$_SESSION['login_admin'];
+
+    $hash_db=$_SESSION['login_password'];
     
 
      
@@ -27,7 +29,7 @@ else{
       $priv=$_SESSION['login_privilage'];
     
 
-      if ($currentpassword==$_SESSION['login_password']){
+      if (password_verify($currentpassword, $hash_db)){
 
         if($priv==2){
 
@@ -66,6 +68,9 @@ else{
       } 
 
       else{
+
+        $result5=$conn->query("SELECT date  FROM users_booking WHERE `bookingID_name` ='$id'");
+          $count_actual_1=$result5->num_rows;
 
         if($conn->query("DELETE FROM `users_booking` WHERE `reference_number`='$ref'  AND `bookingID_name` ='$id' ")){
 
@@ -237,7 +242,7 @@ else{
 
 
           <div class="form-group">
-            <label class="col-md-2 control-label" for="currentpassword">Password</label>
+            <label class="col-md-2 control-label" for="currentpassword">Current assword</label>
             <div class="col-md-4">
               <input type="password" class="form-control" id="currentpassword" name="currentpassword" placeholder="Current password" /> 
             </div>
