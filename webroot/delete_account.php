@@ -10,9 +10,11 @@ else{
   if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
-    $currentpassword=md5($conn->real_escape_string($_POST['currentpassword']));
+    $currentpassword=$conn->real_escape_string($_POST['currentpassword']);
     $name=$conn->real_escape_string($_POST['name']);
     $email=$conn->real_escape_string($_POST['email']);
+
+    $hash_db=$_SESSION['login_password'];
 
      $result1=$conn->query("SELECT user_name  FROM users_profile ");
       
@@ -21,7 +23,7 @@ else{
       $count_inside=0;
     
 
-      if ($currentpassword==$_SESSION['login_password']){
+      if (password_verify($currentpassword, $hash_db)){
 
         if($conn->query("DELETE FROM `users_profile` WHERE user_name='$name' AND email='$email'")){
 
