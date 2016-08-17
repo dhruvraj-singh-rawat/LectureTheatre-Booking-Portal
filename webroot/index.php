@@ -1,6 +1,7 @@
 <?php session_start();
 include("../includes/config.php");
 
+
 if (!$_SESSION['login_admin']){
 
     header("Location: ../login.php");
