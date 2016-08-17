@@ -11,15 +11,24 @@ else{
 
 	$name=$conn->real_escape_string($_POST['name']);
     $position=$conn->real_escape_string($_POST['position']);
-    $password=md5($conn->real_escape_string($_POST['password']));
+    $password=$conn->real_escape_string($_POST['password']);
     $email=$conn->real_escape_string($_POST['email']);
     $AccountType=$conn->real_escape_string($_POST['AccountType']);
 
-    $currentpassword=md5($conn->real_escape_string($_POST['currentpassword']));
+    $currentpassword=$conn->real_escape_string($_POST['currentpassword']);
 
-      if ($currentpassword==$_SESSION['login_password']){
+    $hash_db=$_SESSION['login_password'];
 
- 			if($conn->query("INSERT INTO `users_profile` (`id`, `user_name`,`password`, `email`, `position`, `privilage`) VALUES (NULL, '$name', '$password','$email', '$position', '$AccountType')")){
+      if (password_verify($currentpassword, $hash_db)){
+
+      	$options = [
+          'cost' => 11,
+          'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+        ];
+
+        $hash=password_hash($password, PASSWORD_BCRYPT, $options);
+
+ 			if($conn->query("INSERT INTO `users_profile` (`id`, `user_name`,`password`, `email`, `position`, `privilage`) VALUES (NULL, '$name', '$hash','$email', '$position', '$AccountType')")){
 
  				echo "<div class=\"alert alert-success fade in text-center\"\>
                     <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully made an ID! Start Booking :)</strong></div>";
