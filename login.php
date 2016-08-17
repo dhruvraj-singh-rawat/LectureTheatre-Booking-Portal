@@ -4,38 +4,54 @@ include("includes/config.php");
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$email=$conn->real_escape_string($_POST['email']);
-	$password=md5($conn->real_escape_string($_POST['password']));
+	$password=$conn->real_escape_string($_POST['password']);
 
+  $result0=$conn->query("SELECT password FROM users_profile WHERE email='$email'");
 
-	$result=$conn->query("SELECT user_name,position,email,password,privilage FROM users_profile WHERE email='$email' and password='$password'");
-	//$result=mysql_query($query);
-	//$count=mysql_num_rows($result);
-  //$row = mysql_fetch_assoc($result);
-  //$result=$query->execute();
-  $count=$result->num_rows;
-  //echo 'The value of the Count is '.$count;
+  while($row = $result0->fetch_assoc()) {
 
-	if($count == 1){
-
-    while($row = $result->fetch_assoc()) {
-
-          $_SESSION['login_admin']=$row["user_name"];
-          $_SESSION['login_position']=$row["position"];
-          $_SESSION['login_email']= $row["email"];
-          $_SESSION['login_password']= $row["password"];
-          $_SESSION['login_privilage']= $row["privilage"];
+      $hash_db= $row["password"];    
 
         
     }
 
+  
+
+    if (password_verify($password, $hash_db)) {
+
+        $result=$conn->query("SELECT user_name,position,email,password,privilage FROM users_profile WHERE email='$email'");
+  
+
     
-		header("location: admin/index.php");
+
+        while($row = $result->fetch_assoc()) {
+
+            $_SESSION['login_admin']=$row["user_name"];
+            $_SESSION['login_position']=$row["position"];
+            $_SESSION['login_email']= $row["email"];
+            $_SESSION['login_password']= $row["password"];
+            $_SESSION['login_privilage']= $row["privilage"];
+
+          
+      }
+
+      
+      header("location: webroot/index.php");
+
+
+
+
+
+
+
+
+
 
 	}
 	else{
 		
     echo "<div class=\"alert alert-danger fade in text-center\"\>
-      <a href=\"login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Invalid Username or password</strong></div>";
+      <a href=\"login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Invalid Email</strong></div>";
       
 
 
