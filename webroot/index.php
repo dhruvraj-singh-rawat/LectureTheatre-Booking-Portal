@@ -61,7 +61,8 @@ if (!$_SESSION['login_admin']){
 
                       }
                                         
-                    ?>                    
+                    ?>
+                    <li><a href="free_slot.php">Free Slots</a></li>                    
                     
                    
                 </ul>
