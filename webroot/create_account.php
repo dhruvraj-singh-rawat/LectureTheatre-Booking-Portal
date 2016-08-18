@@ -117,7 +117,8 @@ else{
 
   }
                     
-?>         
+?>   
+<li><a href="free_slot.php">Free Slots</a></li>      
                    
                 </ul>
             </div>
