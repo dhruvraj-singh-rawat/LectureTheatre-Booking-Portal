@@ -50,7 +50,8 @@ if (!$_SESSION['login_admin']){
 
   }
                     
-?> 
+?>
+<li><a href="free_slot.php">Free Slots</a></li> 
 
                     
                     
@@ -134,7 +135,7 @@ if (!$_SESSION['login_admin']){
                     if ($account_privilage==2){
 
 
-                        $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser,reference_number  FROM users_booking ");
+                        $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser,reference_number  FROM users_booking ORDER BY date DESC,start_time ASC ");
 
                         $count=1;
 
@@ -166,7 +167,7 @@ if (!$_SESSION['login_admin']){
                     }
                     else{
 
-                         $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser,reference_number FROM users_booking WHERE bookingID_name='$account_admin'");
+                         $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser,reference_number FROM users_booking WHERE bookingID_name='$account_admin' ORDER BY date DESC,start_time ASC  ");
 
                             $count=1;
 
