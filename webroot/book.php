@@ -39,7 +39,7 @@ else{
     $end_time_temp = strtotime($end_time);
     $diff_time=($end_time_temp-$start_time_temp)/60;
 
-    //echo $diff_time;
+   // echo $diff_time;
 
     $date_sys_temp=strtotime($date_sys);
     $date_temp=strtotime($date);
@@ -87,7 +87,8 @@ else{
           if($count_inside==$count_actual){
 
 
-            if( ($diff_time>0) && ( $diff_date<=2 ) && ($diff_date>=0) && ($start_time_temp>=1471446000) && ($end_time_temp<=1471467600) ) {
+            if( ($diff_time>0) && ( $diff_date<=2 ) && ($diff_date>=0) && ($start_time_temp>=1471446000) && ($end_time_temp<=1471554000) ) {
+
 
               if($conn->query("INSERT INTO `users_booking` (`id`,`reference_number`, `name_event`,`club_name`, `lt_selected`, `message`, `bookingID_name`,`name_superviser`,`start_time`,`end_time`,`date`) VALUES (NULL,'$reference', '$name_event', '$club_name','$lt_selected', '$message', '$booking_id','$name_superviser','$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y') )")){
 
@@ -122,7 +123,7 @@ else{
           else{
 
                   echo "<div class=\"alert alert-info fade in text-center\"\>
-            <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>LT not available at this timing.Try for some different Timings :( </strong></div>";
+            <a href=\"book.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>This LT is not available at these Date and Time Combination . Use \"FREE SLOTS\" Tab for Finding Free Time Slots ;)  </strong></div>";
 
           }
 
@@ -255,6 +256,7 @@ else{
   }
                     
 ?> 
+<li><a href="free_slot.php">Free Slots</a></li>
                    
                     
                    
