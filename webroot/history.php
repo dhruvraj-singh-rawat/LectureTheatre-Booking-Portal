@@ -18,6 +18,7 @@ if (!$_SESSION['login_admin']){
     
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
     
 
 
@@ -31,7 +32,7 @@ if (!$_SESSION['login_admin']){
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-RESERVATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -216,5 +217,6 @@ if (!$_SESSION['login_admin']){
   $('#history').dataTable();
   
 </script>
+
   </body>
 </html>
