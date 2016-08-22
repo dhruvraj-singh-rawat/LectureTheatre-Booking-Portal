@@ -43,11 +43,11 @@ else{
 
     $date_sys_temp=strtotime($date_sys);
     $date_temp=strtotime($date);
-    $diff_date=(($date_temp-$date_sys_temp)/(86400)-1);
+    $diff_date=(($date_temp-$date_sys_temp)/(86400));
 
-    //echo ' Diff in date '.$diff_date.' start_time is '.$start_time_temp.'   end time temp is '.$end_time_temp;
+    echo ' Diff in date '.$diff_date.' start_time is '.$start_time_temp.'   end time temp is '.$end_time_temp.' 0..'.strtotime("11:00 PM");
 
-    //echo date_diff($date, $date_sys);
+   
     //$diff=$date-$date_sys;
     //echo $diff;
     
@@ -83,11 +83,12 @@ else{
           }
 
          // echo 'The count actual is '.$count_actual.' and the count inside is '.$count_inside;
+          // 5 PM =1471878000  $$ 11 PM = 1471899600
 
           if($count_inside==$count_actual){
 
 
-            if( ($diff_time>0) && ( $diff_date<=2 ) && ($diff_date>=0) && ($start_time_temp>=1471446000) && ($end_time_temp<=1471554000) ) {
+            if( ($diff_time>0) && ( $diff_date<=2 ) && ($diff_date>=0) && ($start_time_temp>=strtotime("05:00 PM") ) && ($end_time_temp<=strtotime("11:00 PM")) ) {
 
 
               if($conn->query("INSERT INTO `users_booking` (`id`,`reference_number`, `name_event`,`club_name`, `lt_selected`, `message`, `bookingID_name`,`name_superviser`,`start_time`,`end_time`,`date`) VALUES (NULL,'$reference', '$name_event', '$club_name','$lt_selected', '$message', '$booking_id','$name_superviser','$start_time' ,'$end_time',STR_TO_DATE('$date','%d-%m-%Y') )")){
@@ -236,7 +237,7 @@ else{
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-RESERVATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -382,6 +383,7 @@ else{
           </div>
         </div>
       </div>
+      
     </body>
 
 
