@@ -1,6 +1,10 @@
 <?php session_start();
 include("../includes/config.php");
 
+//echo strtotime("5:00 PM");
+//echo ' '.date('h:i A',1471446000) ;
+
+//echo ' '.strtotime("11:00 PM");
 
 if (!$_SESSION['login_admin']){
 
@@ -26,6 +30,7 @@ if (!$_SESSION['login_admin']){
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -42,7 +47,7 @@ if (!$_SESSION['login_admin']){
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="#" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="#" class="navbar-brand">LT-RESERVATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -261,6 +266,15 @@ echo '                                  '.$count;
           </div>
         </div>
       </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-center">
+            This Portal is Designed and Developed By <a href="https://www.linkedin.com/in/dhruvraj-rawat-96b67a3a">Dhruvraj Singh Rawat</a>
+
+        </p>
+      </div>
+    </footer>
 
 
    
