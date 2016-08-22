@@ -20,6 +20,7 @@ if ((!$_SESSION['login_admin'] ) ){
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
  
 
     <link type="text/css" href="../css/bootstrap-timepicker.min.css" /
@@ -64,7 +65,7 @@ if ((!$_SESSION['login_admin'] ) ){
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-RESERVATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -209,73 +210,116 @@ if ((!$_SESSION['login_admin'] ) ){
 
                         $count=1;
                         $temp_start=0;
-                        $temp_end=0;
+                        $temp_end_current=0;
+                        $temp_end_previous=0;
+                        $count_inside=0;
+                        $loop_round=0;
 
                         while($row = $result->fetch_assoc()){
-                        	
 
-                        	$temp_start=strtotime($row["start_time"]);
-                        	
+                            if($loop_round==0){
+                              //echo 'inside 1';
+                              $temp_start=strtotime($row["start_time"]);
+                              $temp_end_current=strtotime($row["end_time"]);
 
+                            }
+                            else{
+                             // echo 'inside 2';
+                              $temp_start=strtotime($row["start_time"]);
+                              $temp_end_previous=$temp_end_current;
+                              $temp_end_current=strtotime($row["end_time"]);
 
-                        	if(($temp_start>1471446000) && $count==1){
+                              //echo 'The previous temp is '.$temp_end_previous.' and the current temp is '.$temp_end_current.' and temp start is '.$temp_start;
 
-                        		?>
+                            }
 
-                        		<tr>
-                        		<th scope=\"row\"><?php echo "$count" ;?></th>	
-
-                        		<td><?php echo date('h:i A',1471446000) ;?></td>
-                        		<td><?php echo date('h:i A',$temp_start) ;?></td>
-                        		</tr>
-                        		<?php
-                        		$temp_end=strtotime($row["end_time"]);
-                        		$count=$count+1;
-
+                            if($temp_start>=strtotime("05:00 PM") && $temp_end_current<=strtotime("11:00 PM")){
 
 
-                        	}
+                             // echo 'inside 3';
+                              $count_inside=1;
 
-                        	else{
-
-                        		if( (($temp_start-$temp_end)/60)!=0 ){
-                        			?>
-                        		<tr>	
-
-                        		<th scope=\"row\"><?php echo "$count" ;?></th>	
-
-                        		<td><?php echo date('h:i A',$temp_end) ;?></td>
-                        		<td><?php echo date('h:i A',$temp_start) ;?></td>
-                        		</tr>
-                        		<?php
-                        		$temp_end=strtotime($row["end_time"]);
-                        		$count=$count+1;
-
-
-                        		}
-                        		else{
-                        			$temp_end=strtotime($row["end_time"]);
-
-                        		}
+                              if($loop_round==0 && $temp_start>strtotime("05:00 PM")){
+                                ?>
+                                <tr>
+                                <th scope=\"row\"><?php echo "$count" ;?></th>
+                                <td><?php echo date('h:i A',strtotime("05:00 PM")) ;?></td>
+                                <td><?php echo date('h:i A',$temp_start) ;?></td>
+                                </tr>
 
 
 
-                        	}
+                                <?php
+                                $count=$count+1;
+                              }
+                              else{
+                                if($temp_start!=$temp_end_previous && ($count!=1 || $loop_round>0)){
+                                  //echo 'inside 4';
+                                  ?>
+                                  <tr>
+                                  <th scope=\"row\"><?php echo "$count" ;?></th>
+                                  <td><?php echo date('h:i A',$temp_end_previous) ;?></td>
+                                  <td><?php echo date('h:i A',$temp_start) ;?></td>
+                                  </tr>
+                                  <?php
+                                  $count=$count+1;
 
-                        	
+
+                                }
+                              }
 
 
-                        }
+                            }
+                            $loop_round+=1;
 
-                        if($temp_end<1471554000){
-                        	?>
 
-                        	<th scope=\"row\"><?php echo "$count" ;?></th>
-                        	<td><?php echo date('h:i A',$temp_end) ;?></td>
-                        	<td><?php echo date('h:i A',1471554000) ;?></td>
-                        	<?php
 
                         }
+
+                  if($temp_end_current<strtotime("11:00 PM") && $count_inside==0){
+                    //echo 'Inside 5';
+                  	?>
+                    <tr>
+                  	<th scope=\"row\"><?php echo "$count" ;?></th>
+                  	<td><?php echo date('h:i A',strtotime("05:00 PM")) ;?></td>
+                  	<td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                  	<?php
+
+                  }
+                  elseif($temp_end_current<strtotime("11:00 PM")){
+                    //echo 'Inside 6';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php
+
+                  }
+                  elseif($count==1 && $temp_start==strtotime("05:00 PM")){
+                    //echo 'Inside 7';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php
+
+                  }
+                  elseif($count==1){
+                     //echo 'Inside 8';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php                   
+
+                  }
 
                         	
                      
