@@ -77,6 +77,7 @@ else{
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!-- BootstrapValidator CSS -->
     <link href="../css/bootstrapValidator.min.css" rel="stylesheet"/>
@@ -102,7 +103,7 @@ else{
 
             <!-- Logo -->
             <div class="navbar-header">
-                <a href="index.php" class="navbar-brand">LT-REGISTRATION</a>
+                <a href="index.php" class="navbar-brand">LT-RESERVATION</a>
             </div>
 
             <!-- Menu Items -->
@@ -203,6 +204,14 @@ else{
       </div>
     </div>
   </div>
+      <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-center">
+            This Portal is Designed and Developed By <a href="https://www.linkedin.com/in/dhruvraj-rawat-96b67a3a">Dhruvraj Singh Rawat</a>
+
+        </p>
+      </div>
+    </footer>
 </body>
 
 <script type="text/javascript">
