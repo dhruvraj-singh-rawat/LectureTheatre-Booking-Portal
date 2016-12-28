@@ -1,6 +1,6 @@
 <?php session_start();
 include("../includes/config.php");
-if ((!$_SESSION['login_admin'] ) || ($_SESSION['login_privilage'] != 2) ){
+if ((!$_SESSION['login_admin'] ) || ($_SESSION['login_account'] != 2) ){
     header("Location: ../login.php");
     die();
 }
@@ -14,8 +14,8 @@ else{
     $password=$conn->real_escape_string($_POST['password']);
     $email=$conn->real_escape_string($_POST['email']);
     $AccountType=$conn->real_escape_string($_POST['AccountType']);
-
     $currentpassword=$conn->real_escape_string($_POST['currentpassword']);
+    $Privilage=$conn->real_escape_string($_POST['Privilage']);
 
     $hash_db=$_SESSION['login_password'];
 
@@ -28,7 +28,7 @@ else{
 
         $hash=password_hash($password, PASSWORD_BCRYPT, $options);
 
- 			if($conn->query("INSERT INTO `users_profile` (`id`, `user_name`,`password`, `email`, `position`, `privilage`) VALUES (NULL, '$name', '$hash','$email', '$position', '$AccountType')")){
+ 			if($conn->query("INSERT INTO `users_profile` (`id`, `user_name`,`password`, `email`, `position`, `account_type`, `privilage`) VALUES (NULL, '$name', '$hash','$email', '$position', '$AccountType', '$Privilage')")){
 
  				echo "<div class=\"alert alert-success fade in text-center\"\>
                     <a href=\"create_account.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Successfully made an ID! Start Booking :)</strong></div>";
@@ -110,7 +110,7 @@ else{
                     <li><a href="history.php">History</a></li>
                     
                    <?php
-  if($_SESSION['login_privilage'] == 2){
+  if($_SESSION['login_account'] == 2){
     ?>
     <li class="active"><a href="create_account.php">Create Account</a></li>
     
@@ -130,7 +130,7 @@ else{
                 <li ><a href="delete_reservation.php">Delete Reservation</a></li>
                 
                     <?php
-                      if($_SESSION['login_privilage'] == 2){
+                      if($_SESSION['login_account'] == 2){
                         ?>
                         <li ><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -199,6 +199,19 @@ else{
 								<option value="0">Choose One</option>
 								<option value="1">Basic Account</option>
 								<option value="2">Admin Account</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="Privilage">Privilage</label>
+						<div class="col-md-4">
+							<select class="form-control" id="Privilage" name="Privilage">
+								<option value="0">Choose One</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
 							</select>
 						</div>
 					</div>
@@ -327,6 +340,15 @@ else{
 						greaterThan : {
 							value: 1,
 							message: "Membership is required"
+						}
+					}
+				},
+
+				Privilage : {
+					validators : {
+						greaterThan : {
+							value: 1, 
+							message: "Privilage is required"
 						}
 					}
 				}
