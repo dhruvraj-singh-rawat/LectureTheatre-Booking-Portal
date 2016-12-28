@@ -1,6 +1,6 @@
 <?php session_start();
 include("../includes/config.php");
-if ((!$_SESSION['login_admin'] ) || ($_SESSION['login_privilage'] != 2) ){
+if ((!$_SESSION['login_admin'] ) || ($_SESSION['login_account'] != 2) ){
     header("Location: ../login.php");
     die();
 }
@@ -133,7 +133,7 @@ else{
                     <li><a href="history.php">History</a></li>
                     
                                        <?php
-  if($_SESSION['login_privilage'] == 2){
+  if($_SESSION['login_account'] == 2){
     ?>
     <li><a href="create_account.php">Create Account</a></li>
     
@@ -154,7 +154,7 @@ else{
                 <li ><a href="delete_reservation.php">Delete Reservation</a></li>
 
                     <?php
-                      if($_SESSION['login_privilage'] == 2){
+                      if($_SESSION['login_account'] == 2){
                         ?>
                         <li class="active"><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -258,7 +258,7 @@ else{
               message : "Name is required"
             },
             stringLength: {
-              min : 5, 
+              min : 0 , 
               max: 35,
               message: "Name must be between 6 and 35 characters long"
             }
