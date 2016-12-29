@@ -50,20 +50,9 @@ if ((!$_SESSION['login_admin'] ) ){
 
 
   <script>
-  /*$( function() {
+  $( function() {
     $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+2D" , dateFormat: 'dd-mm-yy'});
-  } );*/
-  var disableddates = ["2016-12-17", "2016-12-18", "2016-12-22", "2016-12-25"];
-
-
-  function DisableSpecificDates(date) {
-      var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [disableddates.indexOf(string) == -1];
-    }
-
-    $(function() {
-      $("#datepicker").datepicker({ beforeShowDay: DisableSpecificDates, minDate: 0, maxDate: "+2D", dateFormat: 'yy-mm-dd'  });
-  });
+  } );
   </script>
 
 
@@ -87,7 +76,7 @@ if ((!$_SESSION['login_admin'] ) ){
                     <li ><a href="history.php">History</a></li>
                     
                    <?php
-  if($_SESSION['login_account'] == 2){
+  if($_SESSION['login_privilage'] == 2){
     ?>
     <li><a href="create_account.php">Create Account</a></li>
     
@@ -96,7 +85,7 @@ if ((!$_SESSION['login_admin'] ) ){
   }
                     
 ?> 
-          <li  class="active" ><a href="free_slot.php">Free Slots</a></li>
+					<li  class="active" ><a href="free_slot.php">Free Slots</a></li>
                    
                     
                    
@@ -107,7 +96,7 @@ if ((!$_SESSION['login_admin'] ) ){
                 <ul class="nav navbar-nav navbar-right">
                 <li ><a href="delete_reservation.php">Delete Reservation</a></li>
                     <?php
-                      if($_SESSION['login_account'] == 2){
+                      if($_SESSION['login_privilage'] == 2){
                         ?>
                         <li ><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -141,7 +130,7 @@ if ((!$_SESSION['login_admin'] ) ){
               <div class="form-group">
                 <label class="col-md-2 control-label" for="Date">Date</label>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="datepicker" name="date" placeholder="YYYY-MM-DD" readonly/>
+                  <input type="text" class="form-control" id="datepicker" name="date" placeholder="DD-MM-YYYY"  />
                 </div>
               </div>
 
@@ -178,339 +167,166 @@ if ((!$_SESSION['login_admin'] ) ){
       <br>
 
 
-    <div class="container">
-        <!-- <h2 class="text-center"><strong>Free Slots</strong></h2> -->
-        <div class="panel panel-default">
-          <div class="panel-heading text-center" ><h3>Free Slots</h3></div>
-          <br>
+      <div class="container">
+        <h2 class="text-center"><strong></strong></h2>
+        <br>
 
-          <table class="table table-striped table-bordered table-hover" id="history">
-            <thead>
+        <table class="table table-striped table-bordered table-hover" id="history">
+          <thead>
 
               <tr>
-                  <th>#</th>
-                  <th>From</th>
-                  <th>To</th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>#</th>
-                  <th>From</th>
-                  <th>To</th>
-                </tr>
-            </tfoot>
-            <?php
+                <th>#</th>
+                <th>From</th>
+                <th>To</th>
+
+              </tr>
+            
+          </thead>
+
+
+          <tfoot>
+
+              <tr>
+                <th>#</th>
+                <th>From</th>
+                <th>To</th>
+
+              </tr>
+            
+          </tfoot>
+
+          <tbody>
+
+                <?php
 
                    
                     if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
-                      $date=$conn->real_escape_string($_POST['date']);
-                      $lt_selected=$conn->real_escape_string($_POST['lt_selected']);
-                        $privilage_id1=$conn->real_escape_string($_SESSION['login_privilage']);
+                    	$date=$conn->real_escape_string($_POST['date']);
+                    	$lt_selected=$conn->real_escape_string($_POST['lt_selected']);
 
-                        $date_array = array("2016-12-28", "2016-12-29");
 
-                        for($i=0; $i<sizeof($date_array); $i++)
-                        {
-                          if($date == $date_array[$i])
-                          {
-                            $result=$conn->query("SELECT start_time,end_time  FROM users_booking WHERE date=STR_TO_DATE('$date','%Y-%m-%d') AND lt_selected=
-                            $lt_selected ORDER BY start_time ASC");
+                        $result=$conn->query("SELECT start_time,end_time  FROM users_booking WHERE date=STR_TO_DATE('$date','%d-%m-%Y') AND lt_selected=$lt_selected ORDER BY start_time ASC");
 
-                            $count=1;
-                            $temp_start=0;
-                            $temp_end_current=0;
-                            $temp_end_previous=0;
-                            $count_inside=0;
-                            $loop_round=0;
+                        $count=1;
+                        $temp_start=0;
+                        $temp_end_current=0;
+                        $temp_end_previous=0;
+                        $count_inside=0;
+                        $loop_round=0;
 
-                        
-                            while($row = $result->fetch_assoc())
-                            {
+                        while($row = $result->fetch_assoc()){
 
-                                if($loop_round==0)
-                                {
-                                    //echo 'inside 1';
-                                    $temp_start=strtotime($row["start_time"]);
-                                    $temp_end_current=strtotime($row["end_time"]);
-                                  }
-                                else
-                                {
-                                  // echo 'inside 2';
-                                    $temp_start=strtotime($row["start_time"]);
-                                    $temp_end_previous=$temp_end_current;
-                                    $temp_end_current=strtotime($row["end_time"]);
-                                    //echo 'The previous temp is '.$temp_end_previous.' and the current temp is '.$temp_end_current.' and temp start is '.$temp_start;
-                                }
-                                if($temp_start>=strtotime("09:00 AM") && $temp_end_current<=strtotime("11:00 PM"))
-                                {
-                                  // echo 'inside 3';
-                                    $count_inside=1;
-                                    if($loop_round==0 && $temp_start>strtotime("09:00 AM"))
-                                    {
-                                      ?>  
-                                      <tr>
-                                      <th scope=\"row\"><?php echo "$count" ;?></th>
-                                      <td><?php echo date('h:i A',strtotime("09:00 AM")) ;?></td>
-                                      <td><?php echo date('h:i A',$temp_start) ;?></td>
-                                      </tr>
-                                      <?php
-                                      $count=$count+1;
-                                  }
-                                    else
-                                    {
-                                      if($temp_start!=$temp_end_previous && ($count!=1 || $loop_round>0))
-                                      {
-                                          //echo 'inside 4';
-                                          ?>
-                                                <tr>
-                                          <th scope=\"row\"><?php echo "$count" ;?></th>
-                                          <td><?php echo date('h:i A',$temp_end_previous) ;?></td>
-                                          <td><?php echo date('h:i A',$temp_start) ;?></td>
-                                          </tr>
-                                                <?php
-                                          $count=$count+1;
-                                      }
-                                  }
-                                }
-                                $loop_round+=1;
+                            if($loop_round==0){
+                              //echo 'inside 1';
+                              $temp_start=strtotime($row["start_time"]);
+                              $temp_end_current=strtotime($row["end_time"]);
+
                             }
-                        if($temp_end_current<strtotime("11:00 PM") && $count_inside==0)
-                        {
-                            //echo 'Inside 5';
-                            /*?>*/
-                                    echo '<tr>';
-                            echo '<th scope=\"row\">'.$count.'</th>';
-                            echo '<td>'.date('h:i A',strtotime("09:00 AM")).'</td>';
-                            echo '<td>'.date('h:i A',strtotime("11:00 PM")).'</td>';
-                            echo '</tr>';
-                                /*<?php*/
-                          }
-                          elseif($temp_end_current<strtotime("11:00 PM"))
-                          {
-                            //echo 'Inside 6';
-                            ?>
-                                    <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>
-                        <?php
-                          }
-                          elseif($count==1 && $temp_start==strtotime("09:00 AM"))
-                          {
-                            //echo 'Inside 7';
-                            ?>
-                            <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>                    
-                            <?php
-                          }
-                          elseif($count==1)
-                          {
-                            //echo 'Inside 8';
-                            ?>
-                                    <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>                    
-                            <?php
-                          }
-                          }
-                          else
-                          {
-                            $result=$conn->query("SELECT start_time,end_time  FROM users_booking WHERE date=STR_TO_DATE('$date','%Y-%m-%d') AND lt_selected=
-                            $lt_selected ORDER BY start_time ASC");
+                            else{
+                             // echo 'inside 2';
+                              $temp_start=strtotime($row["start_time"]);
+                              $temp_end_previous=$temp_end_current;
+                              $temp_end_current=strtotime($row["end_time"]);
 
-                            $count=1;
-                            $temp_start=0;
-                            $temp_end_current=0;
-                            $temp_end_previous=0;
-                            $count_inside=0;
-                            $loop_round=0;
-                        
-                            while($row = $result->fetch_assoc())
-                            {
+                              //echo 'The previous temp is '.$temp_end_previous.' and the current temp is '.$temp_end_current.' and temp start is '.$temp_start;
 
-                                if($loop_round==0)
-                                {
-                                    //echo 'inside 1';
-                                    $temp_start=strtotime($row["start_time"]);
-                                    $temp_end_current=strtotime($row["end_time"]);
-                                }
-                                else
-                                {
-                                  // echo 'inside 2';
-                                    $temp_start=strtotime($row["start_time"]);
-                                    $temp_end_previous=$temp_end_current;
-                                    $temp_end_current=strtotime($row["end_time"]);
-                                    //echo 'The previous temp is '.$temp_end_previous.' and the current temp is '.$temp_end_current.' and temp start is '.$temp_start;
-                                }
-                                if($temp_start>=strtotime("05:00 PM") && $temp_end_current<=strtotime("11:00 PM"))
-                                {
-                                      // echo 'inside 3';
-                                    $count_inside=1;
-                                if($loop_round==0 && $temp_start>strtotime("05:00 PM"))
-                                {
-                                      ?>
-                                      <tr>
-                                      <th scope=\"row\"><?php echo "$count" ;?></th>
-                                      <td><?php echo date('h:i A',strtotime("05:00 PM")) ;?></td>
-                                      <td><?php echo date('h:i A',$temp_start) ;?></td>
-                                      </tr>
-                                      <?php
-                                      $count=$count+1;
-                                    }
-                                    else
-                                    {
-                                      if($temp_start!=$temp_end_previous && ($count!=1 || $loop_round>0))
-                                      {
-                                          //echo 'inside 4';
-                                          ?>
-                                        <tr>
-                                          <th scope=\"row\"><?php echo "$count" ;?></th>
-                                          <td><?php echo date('h:i A',$temp_end_previous) ;?></td>
-                                          <td><?php echo date('h:i A',$temp_start) ;?></td>
-                                          </tr>                                  
-                                          <?php
-                                          $count=$count+1;
-                                      }
-                                    }
-                                }
-                                $loop_round+=1;
                             }
 
-                          if($temp_end_current<strtotime("11:00 PM") && $count_inside==0)
-                          {
-                            //echo 'Inside 5';
-                            /*?>*/                    
-                            echo '<tr>';
-                            echo '<th scope=\"row\">'.$count.'</th>';
-                            echo '<td>'.date('h:i A',strtotime("05:00 PM")).'</td>';
-                            echo '<td>'.date('h:i A',strtotime("11:00 PM")).'</td>';
-                            echo '</tr>';             
-                            /*<?php*/
-                          }
-                          elseif($temp_end_current<strtotime("11:00 PM"))
-                          {
-                            //echo 'Inside 6';
-                            ?>                    
-                            <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>                    
-                            <?php
-                          }
-                          elseif($count==1 && $temp_start==strtotime("05:00 PM"))
-                          {
-                            //echo 'Inside 7';
-                            ?>                 
-                            <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>                    
-                            <?php
-                          }
-                          elseif($count==1)
-                          {
-                            //echo 'Inside 8';
-                            ?>                    
-                            <tr>
-                            <th scope=\"row\"><?php echo "$count" ;?></th>
-                            <td><?php echo date('h:i A',$temp_end_current) ;?></td>
-                            <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
-                            </tr>                    
-                            <?php
-                          }
-                      }
-                        ?>
-            </table>
-        </div>
-    </div>
-    <br>
+                            if($temp_start>=strtotime("05:00 PM") && $temp_end_current<=strtotime("11:00 PM")){
 
-      <div class="container">
-          <div class="panel panel-default">
-            <div class="panel-heading text-center" ><h3>Low Priority Slots</h3></div>
-            <br>
 
-            <table class="table table-striped table-bordered table-hover" id="priority">
-              <thead>
+                             // echo 'inside 3';
+                              $count_inside=1;
 
-                <tr>
-                    <th>#</th>
-                    <th>Event</th>
-                    <th>Superviser</th>
-            <th>Priority</th>
-                    <th>From</th>
-                    <th>To</th>
-                  </tr>
-              </thead>
-              <tfoot>
-                  <tr>
-                      <th>#</th>
-                    <th>Event</th>
-                    <th>Superviser</th>
-            <th>Priority</th>
-                    <th>From</th>
-                    <th>To</th>
-                  </tr>
-              </tfoot>
-              <?php                
+                              if($loop_round==0 && $temp_start>strtotime("05:00 PM")){
+                                ?>
+                                <tr>
+                                <th scope=\"row\"><?php echo "$count" ;?></th>
+                                <td><?php echo date('h:i A',strtotime("05:00 PM")) ;?></td>
+                                <td><?php echo date('h:i A',$temp_start) ;?></td>
+                                </tr>
 
-                    if ($_SERVER["REQUEST_METHOD"]=="POST"){          
-                    $result1 = $conn->query("SELECT name_event, name_superviser, start_time, end_time, privilage FROM users_booking WHERE date=STR_TO_DATE('$date','%Y-%m-%d') AND lt_selected=$lt_selected AND privilage>$privilage_id1 ORDER BY start_time ASC");
 
-                    $i=1;
-                    while($row1 = $result1->fetch_assoc())
-                    {
-                      $event = $row1["name_event"];
-                      $superviser = $row1["name_superviser"];
-                      $Start_Time1 = $row1["start_time"];
-                      $End_Time1 = $row1["end_time"];
-                      $Privilage = $row1["privilage"];
-                      $Start_Time = date('h:i a', strtotime($Start_Time1));
-                      $End_Time = date('h:i a', strtotime($End_Time1));
-                      ?>                    
-                      <tr>
-                        <th scope=\"row\"><?php echo "$i" ;?></th>
-                        <td><?php echo "$event"?></td>
-                        <td><?php echo "$superviser"?></td>
-                        <td><?php echo "$Privilage"?></td>
-                        <td><?php echo "$Start_Time"?></td>
-                        <td><?php echo "$End_Time"?></td>
-                        </tr>
-                    
 
-                    <?php
-                      $i = $i +1;
-                    } 
-                          }
+                                <?php
+                                $count=$count+1;
+                              }
+                              else{
+                                if($temp_start!=$temp_end_previous && ($count!=1 || $loop_round>0)){
+                                  //echo 'inside 4';
+                                  ?>
+                                  <tr>
+                                  <th scope=\"row\"><?php echo "$count" ;?></th>
+                                  <td><?php echo date('h:i A',$temp_end_previous) ;?></td>
+                                  <td><?php echo date('h:i A',$temp_start) ;?></td>
+                                  </tr>
+                                  <?php
+                                  $count=$count+1;
+
+
+                                }
+                              }
+
+
+                            }
+                            $loop_round+=1;
+
+
+
                         }
 
+                  if($temp_end_current<strtotime("11:00 PM") && $count_inside==0){
+                    //echo 'Inside 5';
+                  	?>
+                    <tr>
+                  	<th scope=\"row\"><?php echo "$count" ;?></th>
+                  	<td><?php echo date('h:i A',strtotime("05:00 PM")) ;?></td>
+                  	<td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                  	<?php
 
-                        
-                }?>
-            </table>
-          </div>
-      </div>
+                  }
+                  elseif($temp_end_current<strtotime("11:00 PM")){
+                    //echo 'Inside 6';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php
 
+                  }
+                  elseif($count==1 && $temp_start==strtotime("05:00 PM")){
+                    //echo 'Inside 7';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php
 
+                  }
+                  elseif($count==1){
+                     //echo 'Inside 8';
+                    ?>
+                    <tr>
+                    <th scope=\"row\"><?php echo "$count" ;?></th>
+                    <td><?php echo date('h:i A',$temp_end_current) ;?></td>
+                    <td><?php echo date('h:i A',strtotime("11:00 PM")) ;?></td>
+                    </tr>
+                    <?php                   
 
-            
-                   
+                  }
 
+                        	
+                     
 
+                    }
 
-
-
-            
+                   ?>
     </body>
 
 

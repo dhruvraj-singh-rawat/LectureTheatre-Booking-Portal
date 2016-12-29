@@ -26,7 +26,7 @@ else{
 
       $count_inside=0;
 
-      $priv=$_SESSION['login_account'];
+      $priv=$_SESSION['login_privilage'];
     
 
       if (password_verify($currentpassword, $hash_db)){
@@ -184,7 +184,7 @@ else{
                     <li><a href="history.php">History</a></li>
                     
                                        <?php
-  if($_SESSION['login_account'] == 2){
+  if($_SESSION['login_privilage'] == 2){
     ?>
     <li><a href="create_account.php">Create Account</a></li>
     
@@ -205,7 +205,7 @@ else{
                 <li class="active"><a href="delete_reservation.php">Delete Reservation</a></li>
 
                     <?php
-                      if($_SESSION['login_account'] == 2){
+                      if($_SESSION['login_privilage'] == 2){
                         ?>
                         <li><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -244,7 +244,7 @@ else{
 
 
           <div class="form-group">
-            <label class="col-md-2 control-label" for="currentpassword">Current Password</label>
+            <label class="col-md-2 control-label" for="currentpassword">Current assword</label>
             <div class="col-md-4">
               <input type="password" class="form-control" id="currentpassword" name="currentpassword" placeholder="Current password" /> 
             </div>

@@ -43,7 +43,7 @@ if (!$_SESSION['login_admin']){
                     <li    class="active"><a href="history.php">History</a></li>
                     
                    <?php
-  if($_SESSION['login_account'] == 2){
+  if($_SESSION['login_privilage'] == 2){
     ?>
     <li><a href="create_account.php">Create Account</a></li>
     
@@ -65,7 +65,7 @@ if (!$_SESSION['login_admin']){
 
                 <li ><a href="delete_reservation.php">Delete Reservation</a></li>
                                     <?php
-                      if($_SESSION['login_account'] == 2){
+                      if($_SESSION['login_privilage'] == 2){
                         ?>
                         <li ><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -132,8 +132,8 @@ if (!$_SESSION['login_admin']){
                     include("../includes/config.php");
 
                     $account_admin=$_SESSION['login_admin'];
-                    $account_account=$_SESSION['login_account'];
-                    if ($account_account==2){
+                    $account_privilage=$_SESSION['login_privilage'];
+                    if ($account_privilage==2){
 
 
                         $result=$conn->query("SELECT name_event,lt_selected,bookingID_name,date,message,club_name,start_time,end_time,name_superviser,reference_number  FROM users_booking ORDER BY date DESC,lt_selected ASC,start_time ASC ");
