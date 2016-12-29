@@ -114,7 +114,7 @@ else{
                     <li><a href="history.php">History</a></li>
 
                    <?php
-  if($_SESSION['login_privilage'] == 2){
+  if($_SESSION['login_account'] == 2){
     ?>
     <li><a href="create_account.php">Create Account</a></li>
     
@@ -137,7 +137,7 @@ else{
 
                 <li ><a href="delete_reservation.php">Delete Reservation</a></li>
                                     <?php
-                      if($_SESSION['login_privilage'] == 2){
+                      if($_SESSION['login_account'] == 2){
                         ?>
                         <li ><a href="delete_account.php">Delete Account</a></li>
                         <?php

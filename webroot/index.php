@@ -58,7 +58,7 @@ if (!$_SESSION['login_admin']){
                     <li><a href="history.php">History</a></li>
                     
                     <?php
-                      if($_SESSION['login_privilage'] == 2){
+                      if($_SESSION['login_account'] == 2){
                         ?>
                         <li><a href="create_account.php">Create Account</a></li>
                         
@@ -81,7 +81,7 @@ if (!$_SESSION['login_admin']){
 
 
                     <?php
-                      if($_SESSION['login_privilage'] == 2){
+                      if($_SESSION['login_account'] == 2){
                         ?>
                         <li ><a href="delete_account.php">Delete Account</a></li>
                         <?php
@@ -161,12 +161,26 @@ if (!$_SESSION['login_admin']){
                 <div class="col-sm-8">
                   <strong> <input type="text" class="form-control text-center"    placeholder="
 
-                  <?php  if(@$_SESSION['login_privilage']==2){
+                  <?php  if(@$_SESSION['login_account']==2){
             echo "Administrator ";
             }
             else{
                 echo 'Basic Account';
                 } ?>
+
+
+                  " disabled/></strong>
+                  
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label"  >Privilage</label>
+                <div class="col-sm-8">
+                  <strong> <input type="text" class="form-control text-center"    placeholder="
+
+                  <?php echo $_SESSION['login_privilage']; ?> 
+
 
 
                   " disabled/></strong>
@@ -181,10 +195,10 @@ if (!$_SESSION['login_admin']){
                   <strong> <input type="text" class="form-control text-center"    placeholder="
 
                   <?php
-$date=date("d/m/Y");
+$date=date("Y-m-d");
 
 
-$result=$conn->query("SELECT start_time  FROM users_booking WHERE date=STR_TO_DATE('$date','%d/%m/%Y')");
+$result=$conn->query("SELECT start_time  FROM users_booking WHERE date=STR_TO_DATE('$date','%Y-%m-%d')");
 
 
 $count=$result->num_rows;
@@ -210,10 +224,10 @@ echo '              '.$count;
                 <div class="col-sm-8">
                   <strong> <input type="text" class="form-control text-center"    placeholder="
 <?php
-$date=date("d/m/Y");
+$date=date("Y-m-d");
 $login_user=$_SESSION['login_admin'];
 
-$result=$conn->query("SELECT start_time  FROM `users_booking` WHERE date=STR_TO_DATE('$date','%d/%m/%Y') AND `bookingID_name`='$login_user'");
+$result=$conn->query("SELECT start_time  FROM `users_booking` WHERE date=STR_TO_DATE('$date','%Y-%m-%d') AND `bookingID_name`='$login_user'");
 
 
 $count=$result->num_rows;
