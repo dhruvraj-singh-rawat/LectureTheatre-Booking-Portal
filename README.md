@@ -4,11 +4,11 @@
 ### Few Screenshots
 
 ![HomeScreen](/screenshots/LT-1.png "HomeScreen")
-![ProductScreen](/screenshots/LT-1.png "HomeScreen")
-![UserProfileScreen](/screenshots/4.png "UsersProfileScreen")
-![OrderSuccessScreen](/screenshots/2.png "OrderSuccessScreen")
-![AdminOrderListScreen](/screenshots/orders.png "AdminOrdersListScreen")
-![AdminUsersListScreen](/screenshots/3.png "AdminUsersListScreen")
+![ProductScreen](/screenshots/LT-2.png "HomeScreen")
+![UserProfileScreen](/screenshots/LT-3.png "HomeScreen")
+![OrderSuccessScreen](/screenshots/LT-4.png "HomeScreen")
+![AdminOrderListScreen](/screenshots/LT-5.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-6.png "HomeScreen")
 
 ## Sample
 
