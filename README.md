@@ -6,10 +6,18 @@
 
 ```Sample User Logins```
 
+Create a SQL table called "lt_db" and in it import SQL present at database folder 
+
 | Email | Password  |
 | -------- | --------- |
 | test@abc.com (admin) | 12345678 |
 
+
+
+## Tech Stack
+
+__Frontend:__  Bootstrap <br>
+__Backend:__ PHP, MySQL
 
 
 
