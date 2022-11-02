@@ -1,25 +1,4 @@
 
-# ltportal
-
-### Few Screenshots
-
-![HomeScreen](/screenshots/LT-1.png "HomeScreen")
-![ProductScreen](/screenshots/LT-2.png "HomeScreen")
-![UserProfileScreen](/screenshots/LT-3.png "HomeScreen")
-![OrderSuccessScreen](/screenshots/LT-4.png "HomeScreen")
-![AdminOrderListScreen](/screenshots/LT-5.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-6.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-7.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-8.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-9.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-10.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-11.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-12.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-13.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-14.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-15.png "HomeScreen")
-![AdminUsersListScreen](/screenshots/LT-16.png "HomeScreen")
-
 ## Sample
 
 ```Sample User Logins```
@@ -52,3 +31,24 @@ __Backend:__ PHP, MySQL
 - Delete Booking page
 - Change password page 
 - Delete account page
+
+### Few Screenshots
+
+![HomeScreen](/screenshots/LT-1.png "HomeScreen")
+![HomeScreen](/screenshots/LT-2.png "HomeScreen")
+![LoginPage](/screenshots/LT-3.png "LoginPage")
+![OrderSuccessScreen](/screenshots/LT-4.png "HomeScreen")
+![AdminOrderListScreen](/screenshots/LT-5.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-6.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-7.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-8.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-9.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-10.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-11.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-12.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-13.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-14.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-15.png "HomeScreen")
+![AdminUsersListScreen](/screenshots/LT-16.png "HomeScreen")
+
+
