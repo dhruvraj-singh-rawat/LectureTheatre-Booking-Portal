@@ -1,12 +1,20 @@
 
 # ltportal
 
+### Few Screenshots
+
+![HomeScreen](/screenshots/LT-1.png "HomeScreen")
+![ProductScreen](/screenshots/LT-1.png "HomeScreen")
+![UserProfileScreen](/screenshots/4.png "UsersProfileScreen")
+![OrderSuccessScreen](/screenshots/2.png "OrderSuccessScreen")
+![AdminOrderListScreen](/screenshots/orders.png "AdminOrdersListScreen")
+![AdminUsersListScreen](/screenshots/3.png "AdminUsersListScreen")
 
 ## Sample
 
 ```Sample User Logins```
 
-Create a SQL table called "lt_db" and in it import SQL present at database folder 
+Create a SQL table called "lt_db" and in it import SQL file present at database folder 
 
 | Email | Password  |
 | -------- | --------- |
