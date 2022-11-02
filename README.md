@@ -32,7 +32,7 @@ __Backend:__ PHP, MySQL
 - Change password page 
 - Delete account page
 
-### Few Screenshots
+## Few Screenshots
 
 ![HomeScreen](/screenshots/LT-1.png "HomeScreen") <br>
 ![HomeScreen](/screenshots/LT-2.png "HomeScreen")
