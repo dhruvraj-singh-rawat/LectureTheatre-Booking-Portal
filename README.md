@@ -34,7 +34,7 @@ __Backend:__ PHP, MySQL
 
 ### Few Screenshots
 
-![HomeScreen](/screenshots/LT-1.png "HomeScreen")
+![HomeScreen](/screenshots/LT-1.png "HomeScreen") <br>
 ![HomeScreen](/screenshots/LT-2.png "HomeScreen")
 ![LoginPage](/screenshots/LT-3.png "LoginPage")
 ![Dashboard](/screenshots/LT-4.png "Dashboard")
